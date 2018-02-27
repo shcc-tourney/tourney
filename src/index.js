@@ -9,6 +9,8 @@ import registerServiceWorker from './registerServiceWorker';
 
 import store from './redux/store';
 
+console.log(store.getState())
+
 ReactDOM.render(
   <Provider store={store} >
     <Router>
