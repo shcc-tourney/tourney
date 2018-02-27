@@ -1,4 +1,103 @@
 :root {
   --gold: #d1bb77;
-  --shcc-green: #516333;
+  --dark-gold: #bca76e;
+  --brown: #a19478;
+  --dark-green: #516333;
+  --green: #637348;
+  --light-green: #707f57;
+  --dark-red: #cc5744;
+  --beige: #e8d8b5;
+  --light-beige: #f1e9D5;
 }
+
+/* label color */
+.input-field label {
+  color: var(--dark-gold);
+}
+
+/* input text color */
+.input-field input {
+  color: var(--green);
+}
+
+/* label focus color */
+.App .input-field input[type=text]:focus + label {
+  color: white;
+}
+.App .input-field input[type=email]:focus + label {
+  color: white;
+}
+.App .input-field input[type=password]:focus + label {
+  color: white;
+}
+
+/* input underline color */
+.App .input-field input[type=text] {
+  border-bottom: 1px solid var(--dark-gold);
+  box-shadow: 0 1px 0 0 var(--dark-gold);
+}
+.App .input-field input[type=email] {
+  border-bottom: 1px solid var(--dark-gold);
+  box-shadow: 0 1px 0 0 var(--dark-gold);
+}
+.App .input-field input[type=password] {
+  border-bottom: 1px solid var(--dark-gold);
+  box-shadow: 0 1px 0 0 var(--dark-gold);
+}
+
+/* input underline focus color */
+.App .input-field input[type=text]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+.App .input-field input[type=email]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+.App .input-field input[type=password]:focus {
+  border-bottom: 1px solid white;
+  box-shadow: 0 1px 0 0 white;
+}
+
+/* valid color */
+.App .input-field input[type=text].valid {
+  color: var(--green);
+}
+.App .input-field input[type=email].valid {
+  color: var(--green);
+}
+.App .input-field input[type=password].valid {
+  color: var(--green);
+}
+
+/* invalid color */
+.App .input-field input[type=text].invalid {
+  color: var(--dark-red);
+}
+.App .input-field input[type=email].invalid {
+  color: var(--dark-red);
+}
+.App .input-field input[type=password].invalid {
+  color: var(--dark-red);
+}
+
+/* icon prefix focus color */
+.App .input-field .prefix {
+  color: var(--dark-gold);
+}
+
+/* icon prefix focus color */
+.App .input-field .prefix.active {
+  color: white;
+}
+
+/* buttons */
+.App .btn, .App .btn-large, .App .btn-small {
+  background-color: var(--light-green);
+}
+
+.App button:disabled {
+  background-color: var(--light-beige) !important;
+  color: var(--beige) !important;
+}
+        

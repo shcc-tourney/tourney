@@ -19,7 +19,7 @@ const NavBar = (props) => (
       </div>
       <div className='NavBar-logo'>
         <div>SHCC</div>
-        <img src='/favicon.png' alt=''/>
+        <img src='/images/logo4.png' alt=''/>
         <div>Tourney</div>
       </div>
       <div className="nav-wrapper">

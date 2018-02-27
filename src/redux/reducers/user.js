@@ -5,7 +5,7 @@ import userService from '../../utils/userService';
 
 export default (state = { user: userService.getUser() }, action) => {
   switch (action.type) {
-    case actions.NEW_USER_TOKEN_SET:
+    case actions.USER_TOKEN_SET:
       return { ...state, user: action.payload };
     default:
       return state;

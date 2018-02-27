@@ -2,5 +2,5 @@
 
 
 /*--- userState actions ---*/
-export const NEW_USER_TOKEN_SET = 'NEW_USER_TOKEN_SET';
+export const USER_TOKEN_SET = 'NEW_USER_TOKEN_SET';
 

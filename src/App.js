@@ -26,7 +26,7 @@ class App extends Component {
           <Route path='/wagers' render={props => (
             <WagersPage/>
           )} />
-          <Redirect to='/login' />
+          <Redirect to='/odds' />
         </Switch>
       </div>
     );

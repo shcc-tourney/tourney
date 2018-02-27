@@ -8,15 +8,11 @@
   flex: 1;
 }
 
-#NavBar i.active {
-  color: var(--shcc-green);
-}
-
 .NavBar-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--shcc-green);
+  color: var(--light-green);
 }
 
 .NavBar-logo img {
