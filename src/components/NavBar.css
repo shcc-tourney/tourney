@@ -1,0 +1,30 @@
+#NavBar nav {
+  background-color: var(--gold);
+  display: flex;
+  justify-content: space-between;
+}
+
+#NavBar nav > div {
+  flex: 1;
+}
+
+#NavBar i.active {
+  color: var(--shcc-green);
+}
+
+.NavBar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--shcc-green);
+}
+
+.NavBar-logo img {
+  margin: auto 8px auto 10px;
+  height: 48px;
+}
+
+.NavBar-logo div:first-child {
+  letter-spacing: 2px;
+}
+
