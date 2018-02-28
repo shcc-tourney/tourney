@@ -1,17 +1,17 @@
 function setToken(token) {
   if (token) {
-    localStorage.setItem('token', token);
+    sessionStorage.setItem('token', token);
   } else {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
   }
 }
 
 function getToken() {
-  var token = localStorage.getItem('token');
+  var token = sessionStorage.getItem('token');
   if (token) {
     var payload = JSON.parse(atob(token.split('.')[1]));
     if (payload.exp && payload.exp < Date.now() / 1000) {
-      localStorage.removeItem('token');
+      sessionStorage.removeItem('token');
       token = null;
     }
   }
@@ -24,7 +24,7 @@ function getUserFromToken() {
 }
 
 function removeToken() {
-  localStorage.removeItem('token');
+  sessionStorage.removeItem('token');
 }
 
 export default {
