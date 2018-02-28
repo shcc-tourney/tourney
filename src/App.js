@@ -15,10 +15,10 @@ class App extends Component {
         <NavBar {...this.props}/>
         <Switch>
           <Route path='/login' render={props => (
-            <LoginPage />
+            <LoginPage {...props}/>
           )} />
           <Route path='/odds' render={props => (
-            <OddsPage {...props} />
+            <OddsPage {...props}/>
            )} />
           <Route path='/events' render={props => (
             <EventsPage/>

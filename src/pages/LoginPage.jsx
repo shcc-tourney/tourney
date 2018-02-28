@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import userService from '../utils/userService';
+import { userAuthenticated } from '../redux/actions/actionCreatorsUsers';
+
 
 class LoginPage extends Component {
   constructor() {
@@ -12,6 +16,16 @@ class LoginPage extends Component {
   updateField = (field, e) => {
     this.setState({
       [field]: e.target.value
+    });
+  }
+
+  login = (e) => {
+    e.preventDefault();
+    userService.login({email: this.state.email, pw: this.state.pw}).then(user => {
+      this.props.dispatch(userAuthenticated(user));
+      this.props.history.push('/odds');
+    }).catch(err => {
+      window.M.toast({ html: err.message, classes: 'toast-error' });
     });
   }
 
@@ -40,7 +54,10 @@ class LoginPage extends Component {
             </div>
             <div className="row">
               <div className="col s4 offset-s4 right-align">
-                <button disabled={!this.form || !this.form.checkValidity()} className="waves-effect waves-light btn-small"><i className="material-icons left">person</i>log in</button>
+                <div>{this.state.message || ' '}</div>
+                <button className="waves-effect waves-light btn-small"
+                  disabled={!this.form || !this.form.checkValidity()} onClick={this.login}
+                ><i className="material-icons left">check</i>LOG IN</button>
               </div>
             </div>
           </form>
@@ -50,4 +67,8 @@ class LoginPage extends Component {
   };
 }
 
-export default LoginPage;
+export default connect(
+  (state) => ({
+    user: state.userState.user
+  })
+)(LoginPage);

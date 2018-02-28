@@ -22,3 +22,8 @@ body {
   flex: 1;
 }
 
+.toast-error {
+  background-color: var(--dark-red);
+  color: white;
+}
+
