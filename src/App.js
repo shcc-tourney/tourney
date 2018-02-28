@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import OddsPage from './pages/OddsPage';
 import EventsPage from './pages/EventsPage';
 import WagersPage from './pages/WagersPage';
+import PayoutsPage from './pages/PayoutsPage';
 
 class App extends Component {
   render() {
@@ -25,6 +26,9 @@ class App extends Component {
           )} />
           <Route path='/wagers' render={props => (
             <WagersPage/>
+          )} />
+          <Route path='/payouts' render={props => (
+            <PayoutsPage/>
           )} />
           <Redirect to='/odds' />
         </Switch>
