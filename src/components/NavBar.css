@@ -8,6 +8,10 @@
   flex: 1;
 }
 
+#NavBar .username {
+  color: var(--brown);
+}
+
 .NavBar-logo {
   display: flex;
   justify-content: center;

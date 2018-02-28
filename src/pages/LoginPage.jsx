@@ -37,7 +37,7 @@ class LoginPage extends Component {
             <div className="row">
               <div className="input-field col s4 offset-s4">
                 <i className="material-icons prefix">email</i>
-                <input id="email" type="email" className="validate" autoComplete="off" required
+                <input id="email" type="email" className="validate" autoComplete="off" spellCheck="false" required
                   value={this.state.email} onChange={(e) => this.updateField('email', e)}
                 />
                 <label htmlFor="email">Email</label>

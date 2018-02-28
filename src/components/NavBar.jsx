@@ -11,31 +11,48 @@ const styles = {
 };
 
 class NavBar extends Component {
-  componentDidMount() {
-    window.$(".dropdown-trigger").dropdown();
-  }
-
-  componentDidUpdate() {
-    window.$(".dropdown-trigger").dropdown();
-  }
 
   logout = (e) => {
     e.preventDefault();
     userService.forgetMe();
-    this.props.dispatch(userLoggedOut());
+    this.props.userLoggedOut();
   }
 
   render() {
+    const rightSideNav = this.props.user ?
+      <ul className="right hide-on-small-only">
+        <li className='username'><i className="material-icons left">person</i>{this.props.user.name}</li>
+        <li><a href="" onClick={this.logout}>Log Out</a></li>
+      </ul>
+      :
+      <ul className="right hide-on-small-only">
+        <li className={this.props.location.pathname === '/login' ? 'active' : ''}><Link to="/login">Log In</Link></li>
+      </ul>;
+  
     return (
       <div id='NavBar' className="navbar-fixed">
         <nav style={styles}>
           <div className="nav-wrapper">
-            <ul id="nav-mobile" className="left hide-on-small-only">
+            {/* med/sm menu */}
+            <a href="#" data-target="mobile-menu" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+            <ul className="sidenav" id="mobile-menu">
+              <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/">Live Odds</Link></li>
+              {this.props.user &&
+                <React.Fragment>
+                  <li className={this.props.location.pathname === '/events' ? 'active' : null}><Link to="/events">Events</Link></li>
+                  <li className={this.props.location.pathname === '/wagers' ? 'active' : null}><Link to="/wagers">Wagers</Link></li>
+                  <li className={this.props.location.pathname === '/payouts' ? 'active' : null}><Link to="/payouts">Payouts</Link></li>
+                </React.Fragment>
+              }
+            </ul>
+
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/">Live Odds</Link></li>
               { this.props.user && 
                 <React.Fragment>
                   <li className={this.props.location.pathname === '/events' ? 'active' : null}><Link to="/events">Events</Link></li>
                   <li className={this.props.location.pathname === '/wagers' ? 'active' : null}><Link to="/wagers">Wagers</Link></li>
+                  <li className={this.props.location.pathname === '/payouts' ? 'active' : null}><Link to="/payouts">Payouts</Link></li>
                 </React.Fragment>
               }
             </ul>
@@ -46,21 +63,7 @@ class NavBar extends Component {
             <div>Tourney</div>
           </div>
           <div className="nav-wrapper">
-            {
-              this.props.user ?
-                <React.Fragment>
-                  <ul id="dropdown1" className="dropdown-content">
-                    <li><a href="" onClick={this.logout}>Log Out</a></li>
-                  </ul>
-                  <ul id="nav-mobile" className="right hide-on-small-only">
-                      <li><a className="dropdown-trigger" href="#!" data-target="dropdown1"><i className="material-icons left">person</i>{this.props.user.name}</a></li>
-                  </ul>
-                </React.Fragment>
-              :
-                <ul id="nav-mobile" className="right hide-on-small-only">
-                  <li className={this.props.location.pathname === '/login' ? 'active' : null}><Link to="/login">Log In</Link></li>
-                </ul>
-            }
+            { rightSideNav }
           </div>
         </nav>
       </div>
@@ -71,5 +74,8 @@ class NavBar extends Component {
 export default connect(
   (state) => ({
     user: state.userState.user
-  })
+  }),
+  {
+    userLoggedOut,
+  }
 )(NavBar);
