@@ -22,7 +22,6 @@ function login(creds) {
 
 function forgetMe() {
   tokenService.removeToken();
-  window.location.href = '/';
 }
 
 export default {

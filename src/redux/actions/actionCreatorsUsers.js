@@ -7,3 +7,9 @@ export const userAuthenticated = (userFromToken) => {
   }
 };
 
+export const userLoggedOut = () => {
+  return {
+    type: actions.USER_LOGGED_OUT
+  }
+};
+
