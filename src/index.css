@@ -27,3 +27,7 @@ body {
   color: white;
 }
 
+.dropdown-trigger:focus {
+  outline: none;
+}
+
