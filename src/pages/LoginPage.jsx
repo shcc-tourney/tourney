@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './LoginPage.css';
 import userService from '../utils/userService';
 import { userAuthenticated } from '../redux/actions/actionCreatorsUsers';
 
@@ -31,13 +32,12 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <main className='page-no-sidebar'>
-        <div className="container row">
+      <main className='LoginPage page-no-sidebar row'>
           <form ref={frm => this.form = frm} className="col s12">
             <div className="row">
               <div className="input-field col s10 offset-s1 m8 offset-m2 l6 offset-l3">
                 <i className="material-icons prefix">email</i>
-                <input id="email" type="email" className="validate" autoComplete="off" spellCheck="false" required
+                <input id="email" type="email" className="validate" autoComplete="off" required
                   value={this.state.email} onChange={(e) => this.updateField('email', e)}
                 />
                 <label htmlFor="email">Email</label>
@@ -61,7 +61,6 @@ class LoginPage extends Component {
               </div>
             </div>
           </form>
-        </div>
       </main>
     );
   };
