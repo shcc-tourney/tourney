@@ -8,6 +8,14 @@
   flex: 1;
 }
 
+#NavBar nav > div.NavBar-logo {
+  flex: 0;
+}
+
+#NavBar #menu-btn {
+  padding-left: 12px;
+}
+
 #NavBar .username {
   color: var(--brown);
 }

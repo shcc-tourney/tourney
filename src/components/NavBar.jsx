@@ -5,17 +5,17 @@ import './NavBar.css';
 import { userLoggedOut } from '../redux/actions/actionCreatorsUsers';
 import userService from '../utils/userService';
 
-const styles = {
-  display: 'flex',
-  justifyContent: 'space-between'
-};
-
 class NavBar extends Component {
 
   logout = (e) => {
     e.preventDefault();
     userService.forgetMe();
     this.props.userLoggedOut();
+  }
+
+  componentDidMount() {
+    let $el = window.$(".dropdown-button");
+    if ($el.length) $el.dropdown();
   }
 
   render() {
@@ -31,12 +31,11 @@ class NavBar extends Component {
   
     return (
       <div id='NavBar' className="navbar-fixed">
-        <nav style={styles}>
+        <nav>
           <div className="nav-wrapper">
-            {/* med/sm menu */}
-            <a href="#" data-target="mobile-menu" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-            <ul className="sidenav" id="mobile-menu">
-              <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/">Live Odds</Link></li>
+            <a href="" id="menu-btn" className="left dropdown-button hide-on-large-only" data-target="dropdown1"><i className="material-icons">menu</i></a>
+            <ul id="dropdown1" className="dropdown-content hide-on-large-only">
+              <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/odds">Live Odds</Link></li>
               {this.props.user &&
                 <React.Fragment>
                   <li className={this.props.location.pathname === '/events' ? 'active' : null}><Link to="/events">Events</Link></li>
@@ -47,7 +46,7 @@ class NavBar extends Component {
             </ul>
 
             <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/">Live Odds</Link></li>
+              <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/odds">Live Odds</Link></li>
               { this.props.user && 
                 <React.Fragment>
                   <li className={this.props.location.pathname === '/events' ? 'active' : null}><Link to="/events">Events</Link></li>
