@@ -1,5 +1,4 @@
 import socketClient from 'socket.io-client';
-import * as actions from '../redux/actions/actionNames';
 import { websocketConnect, websocketDisconnect } from '../redux/actions/actionCreatorsSystem';
 import store from '../redux/store';
 
