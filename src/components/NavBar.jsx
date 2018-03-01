@@ -21,7 +21,7 @@ class NavBar extends Component {
   render() {
     const rightSideNav = (this.props.user ?
       <ul className="right hide-on-small-only">
-        <li className='username'><i className="material-icons left">person</i>{this.props.user.name}</li>
+        <li className='username hide-on-med-only'><i className="material-icons left">person</i>{this.props.user.name}</li>
         <li><a href="" onClick={this.logout}>Log Out</a></li>
       </ul>
       :
@@ -29,7 +29,7 @@ class NavBar extends Component {
         <li className={this.props.location.pathname === '/login' ? 'active' : ''}><Link to="/login">Log In</Link></li>
       </ul>
     );
-
+    
     const authNavItems = (
       <React.Fragment>
         <li className={this.props.location.pathname === '/wagers' ? 'active' : null}><Link to="/wagers">Wagers</Link></li>
@@ -40,13 +40,22 @@ class NavBar extends Component {
     const adminNavItems = (
       <li className={this.props.location.pathname === '/events' ? 'active' : null}><Link to="/events">Events</Link></li>
     );
-  
+    
     return (
       <div id='NavBar' className="navbar-fixed">
         <nav>
           <div className="nav-wrapper">
             <a href="" id="menu-btn" className="left dropdown-button hide-on-large-only" data-target="dropdown1"><i className="material-icons">menu</i></a>
             <ul id="dropdown1" className="dropdown-content hide-on-large-only">
+              { this.props.user ?
+                <React.Fragment>
+                  <li className='username'><i className="material-icons left">person</i>{this.props.user.name}</li>
+                  <li><a href="" onClick={this.logout}>Log Out</a></li>
+                </React.Fragment>
+              :
+                <li className={this.props.location.pathname === '/login' ? 'active' : ''}><Link to="/login">Log In</Link></li>
+              }
+              <li className="divider"></li>
               <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/odds">Live Odds</Link></li>
               { this.props.user && authNavItems }
               { this.props.user && this.props.user.admin && adminNavItems }

@@ -30,6 +30,10 @@ body {
   outline: none;
 }
 
+.App .dropdown-content {
+  min-width: 200px;
+}
+
 
 
 

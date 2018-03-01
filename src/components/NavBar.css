@@ -18,6 +18,9 @@
 
 #NavBar .username {
   color: var(--brown);
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
 }
 
 .NavBar-logo {

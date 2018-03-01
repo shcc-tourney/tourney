@@ -35,7 +35,7 @@ class LoginPage extends Component {
         <div className="container row">
           <form ref={frm => this.form = frm} className="col s12">
             <div className="row">
-              <div className="input-field col s4 offset-s4">
+              <div className="input-field col s10 offset-s1 m8 offset-m2 l6 offset-l3">
                 <i className="material-icons prefix">email</i>
                 <input id="email" type="email" className="validate" autoComplete="off" spellCheck="false" required
                   value={this.state.email} onChange={(e) => this.updateField('email', e)}
@@ -44,7 +44,7 @@ class LoginPage extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="input-field col s4 offset-s4">
+              <div className="input-field col s10 offset-s1 m8 offset-m2 l6 offset-l3">
                 <i className="material-icons prefix">security</i>
                 <input id="password" type="password" className="validate" minLength={4} required
                   value={this.state.pw} onChange={(e) => this.updateField('pw', e)}
@@ -53,7 +53,7 @@ class LoginPage extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col s4 offset-s4 right-align">
+              <div className="col s10 offset-s1 m8 offset-m2 l6 offset-l3 right-align">
                 <div>{this.state.message || ' '}</div>
                 <button className="waves-effect waves-light btn-small"
                   disabled={!this.form || !this.form.checkValidity()} onClick={this.login}
