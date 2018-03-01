@@ -100,4 +100,11 @@
   background-color: var(--light-beige) !important;
   color: var(--beige) !important;
 }
-        
+
+.App .dropdown-content li > a, .dropdown-content li > span {
+  color: var(--dark-gold);
+}
+
+.App .dropdown-button {
+  outline: none;
+}

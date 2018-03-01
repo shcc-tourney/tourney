@@ -19,7 +19,7 @@ class NavBar extends Component {
   }
 
   render() {
-    const rightSideNav = this.props.user ?
+    const rightSideNav = (this.props.user ?
       <ul className="right hide-on-small-only">
         <li className='username'><i className="material-icons left">person</i>{this.props.user.name}</li>
         <li><a href="" onClick={this.logout}>Log Out</a></li>
@@ -27,7 +27,19 @@ class NavBar extends Component {
       :
       <ul className="right hide-on-small-only">
         <li className={this.props.location.pathname === '/login' ? 'active' : ''}><Link to="/login">Log In</Link></li>
-      </ul>;
+      </ul>
+    );
+
+    const authNavItems = (
+      <React.Fragment>
+        <li className={this.props.location.pathname === '/wagers' ? 'active' : null}><Link to="/wagers">Wagers</Link></li>
+        <li className={this.props.location.pathname === '/payouts' ? 'active' : null}><Link to="/payouts">Payouts</Link></li>
+      </React.Fragment>
+    );
+    
+    const adminNavItems = (
+      <li className={this.props.location.pathname === '/events' ? 'active' : null}><Link to="/events">Events</Link></li>
+    );
   
     return (
       <div id='NavBar' className="navbar-fixed">
@@ -36,24 +48,14 @@ class NavBar extends Component {
             <a href="" id="menu-btn" className="left dropdown-button hide-on-large-only" data-target="dropdown1"><i className="material-icons">menu</i></a>
             <ul id="dropdown1" className="dropdown-content hide-on-large-only">
               <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/odds">Live Odds</Link></li>
-              {this.props.user &&
-                <React.Fragment>
-                  <li className={this.props.location.pathname === '/events' ? 'active' : null}><Link to="/events">Events</Link></li>
-                  <li className={this.props.location.pathname === '/wagers' ? 'active' : null}><Link to="/wagers">Wagers</Link></li>
-                  <li className={this.props.location.pathname === '/payouts' ? 'active' : null}><Link to="/payouts">Payouts</Link></li>
-                </React.Fragment>
-              }
+              { this.props.user && authNavItems }
+              { this.props.user && this.props.user.admin && adminNavItems }
             </ul>
 
             <ul id="nav-mobile" className="left hide-on-med-and-down">
               <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/odds">Live Odds</Link></li>
-              { this.props.user && 
-                <React.Fragment>
-                  <li className={this.props.location.pathname === '/events' ? 'active' : null}><Link to="/events">Events</Link></li>
-                  <li className={this.props.location.pathname === '/wagers' ? 'active' : null}><Link to="/wagers">Wagers</Link></li>
-                  <li className={this.props.location.pathname === '/payouts' ? 'active' : null}><Link to="/payouts">Payouts</Link></li>
-                </React.Fragment>
-              }
+              { this.props.user && authNavItems }
+              { this.props.user && this.props.user.admin && adminNavItems }
             </ul>
           </div>
           <div className='NavBar-logo'>
