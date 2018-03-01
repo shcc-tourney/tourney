@@ -10,7 +10,7 @@ const Footer = (props) => {
   
   return (
     <footer className='Footer'>
-      <div>Realtime Connection Status <span style={styles}></span></div>
+      <div><span className='hide-on-small-only'>Realtime Connection Status</span> <span className='connection-dot' style={styles}></span></div>
       <div>&copy; 2018 Amazio Software</div>
     </footer>
   );
