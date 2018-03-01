@@ -25,6 +25,8 @@ app.get('/*', function (req, res) {
 // development to avoid collision with React's dev server
 var port = process.env.PORT || 3001;
 
-app.listen(port, function () {
+var server = app.listen(port, function () {
   console.log(`Express app running on port ${port}`)
 });
+
+require('./realtime/io').init(server);

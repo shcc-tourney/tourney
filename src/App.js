@@ -39,6 +39,7 @@ class App extends Component {
 
 export default connect(
   (state) => ({
+    connected: state.systemState.connected,
     loading: state.systemState.loading,
     user: state.userState.user
   }),

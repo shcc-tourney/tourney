@@ -9,6 +9,9 @@ import registerServiceWorker from './registerServiceWorker';
 
 import store from './redux/store';
 
+// connect to the socket.io server
+import socket from './utils/socket';
+
 ReactDOM.render(
   <Provider store={store} >
     <Router>
