@@ -11,6 +11,7 @@ class NavBar extends Component {
     e.preventDefault();
     userService.forgetMe();
     this.props.userLoggedOut();
+    this.props.history.push('/odds');
   }
 
   componentDidMount() {
