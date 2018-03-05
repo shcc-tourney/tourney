@@ -1,0 +1,7 @@
+.EventSelector {
+  grid-area: sidebar;
+}
+
+.EventSelector section {
+  overflow-y: scroll;
+}

@@ -1,11 +1,12 @@
+html, body {
+  height: 100%;
+}
+
 * {
   font-family: 'Montserrat', sans-serif;
 }
 
 body {
-  height: 100vh;
-  margin: 0;
-  padding: 0;
   background: url('/images/bg.jpg') no-repeat center center fixed;
   background-size: cover;
 }
@@ -19,7 +20,6 @@ body {
   justify-content: center;
   align-items: center;
   flex: 1;
-  margin: 0;
 }
 
 .toast-error {
@@ -35,6 +35,32 @@ body {
   min-width: 200px;
 }
 
+.col-section {
+  display: flex;
+  flex-flow: column nowrap;
+  height: calc(100vh - 128px);
+  background-color: var(--light-beige);
+  opacity: 0.85;
+  padding: 10px;
+}
 
+.section-title {
+  background-color: var(--light-green);
+  color: var(--light-beige);
+  height: 42px;
+  font-size: 15px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin: -10px -10px 0;
+  padding: 10px;
+}
 
+/* cards */
+.App div.card-action {
+  background-color: var(--dark-gold);
+}
+
+.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color: white;
+}
 
