@@ -5,3 +5,8 @@
 .EventSelector section {
   overflow-y: scroll;
 }
+
+.EventSelector-top-controls {
+  margin: 10px auto;
+}
+

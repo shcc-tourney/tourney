@@ -6,6 +6,9 @@ const EventSelector = (props) => {
   return (
     <div className='EventSelector col-section'>
       <div className='section-title'>SELECT EVENT</div>
+      <div className='EventSelector-top-controls'>
+        <button className="btn-small waves-light waves-effect"><i className="material-icons  left">add</i>Tourney</button>
+      </div>
       <section>
         <div className="card">
           <div className="card-content">
@@ -14,8 +17,7 @@ const EventSelector = (props) => {
             I am convenient because I require little markup to use effectively.</p>
           </div>
           <div className="card-action">
-            <a href="">This is a link</a>
-            <a href="">This is a link</a>
+            <button className="btn-small waves-light waves-effect"><i className="material-icons  left">add</i>Event</button>
           </div>
         </div>
         <div className="card">

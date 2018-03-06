@@ -47,6 +47,7 @@ body {
 .section-title {
   background-color: var(--light-green);
   color: var(--light-beige);
+  opacity: 0.5;
   height: 42px;
   font-size: 15px;
   letter-spacing: 3px;
@@ -57,10 +58,11 @@ body {
 
 /* cards */
 .App div.card-action {
-  background-color: var(--dark-gold);
+  text-align: right;
 }
 
 .App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color: white;
 }
+
 
