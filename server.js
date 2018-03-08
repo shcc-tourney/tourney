@@ -13,6 +13,9 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 
+// Auth middleware to check for JWT and add user payload req
+app.use(require('./config/auth'));
+
 // Put API routes here
 app.use('/rt', require('./routes/api/realtimeResponse'));
 app.use('/api/users', require('./routes/api/users'));
