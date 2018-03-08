@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 
 // Auth middleware to check for JWT and add user payload req
-app.use(require('./config/auth'));
+app.use(require('./config/auth').addUserFromToken);
 
 // Put API routes here
 app.use('/rt', require('./routes/api/realtimeResponse'));
