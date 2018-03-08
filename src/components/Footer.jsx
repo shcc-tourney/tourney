@@ -5,12 +5,12 @@ import './Footer.css';
 
 const Footer = (props) => {
   const styles ={
-    backgroundColor: props.connected ? 'var(--bright-green)' : 'var(--dark-red)'
+    backgroundColor: props.fetching ? 'yellow' : props.connected ? 'var(--bright-green)' : 'var(--dark-red)'
   };
   
   return (
     <footer className='Footer'>
-      <div><span className='hide-on-small-only'>Realtime Connection Status</span> <span className='connection-dot' style={styles}></span></div>
+      <div><span className='hide-on-small-only'>Realtime Data Status</span> <span className='connection-dot' style={styles}></span></div>
       <div>&copy; 2018 Amazio Software</div>
     </footer>
   );
@@ -18,6 +18,7 @@ const Footer = (props) => {
 
 export default connect(
   (state) => ({
-    connected: state.systemState.connected
+    connected: state.systemState.connected,
+    fetching: (state.systemState.fetchingCount > 0),
   })
 )(Footer);

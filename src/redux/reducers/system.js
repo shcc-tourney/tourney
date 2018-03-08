@@ -4,7 +4,7 @@ import * as actions from '../actions/actionNames';
 
 const initialState = {
   connected: false,
-  loading: false,
+  fetchingCount: 0,
 };
 
 export default (state = initialState, action) => {
@@ -13,6 +13,10 @@ export default (state = initialState, action) => {
       return { ...state, connected: true };
     case actions.WS_DISCONNECT:
       return { ...state, connected: false };
+    case actions.FETCH_BEGIN:
+      return { ...state, fetchingCount: ++state.fetchingCount };
+    case actions.FETCH_END:
+      return { ...state, fetchingCount: --state.fetchingCount };
     default:
       return state;
   }
