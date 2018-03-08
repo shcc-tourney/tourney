@@ -3,6 +3,10 @@
   "name": "SHCC Tourney",
   "icons": [
     {
+      "src": "/images/icons/chrome/chrome-favicon-16-16.png",
+      "sizes": "16x16"
+    },
+    {
       "src": "/images/icons/android/android-launchericon-512-512.png",
       "sizes": "512x512"
     },
@@ -89,10 +93,6 @@
     {
       "src": "/images/icons/chrome/chrome-extensionmanagementpage-48-48.png",
       "sizes": "48x48"
-    },
-    {
-      "src": "/images/icons/chrome/chrome-favicon-16-16.png",
-      "sizes": "16x16"
     },
     {
       "src": "/images/icons/chrome/chrome-installprocess-128-128.png",

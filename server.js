@@ -8,8 +8,8 @@ var app = express();
 require('dotenv').config();
 require('./config/database');
 
-app.use(logger('dev'));
 app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 

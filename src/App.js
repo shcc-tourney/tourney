@@ -24,13 +24,22 @@ class App extends Component {
               <OddsPage {...props}/>
             )} />
             <Route path='/events' render={props => (
-              <EventsPage/>
+              this.props.user ?
+                <EventsPage/>
+              :
+                <Redirect to='/login' />
             )} />
             <Route path='/wagers' render={props => (
-              <WagersPage/>
+              this.props.user ?
+                <WagersPage />
+                :
+                <Redirect to='/login' />
             )} />
             <Route path='/payouts' render={props => (
-              <PayoutsPage/>
+              this.props.user ?
+                <PayoutsPage />
+                :
+                <Redirect to='/login' />
             )} />
             <Redirect to='/odds' />
           </Switch>
