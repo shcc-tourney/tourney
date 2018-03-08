@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './LoginPage.css';
 import userService from '../utils/userService';
 import { userAuthenticated } from '../redux/actions/actionCreatorsUsers';
+import { uiToast } from '../redux/actions/actionCreatorsUI';
 
 
 class LoginPage extends Component {
@@ -23,10 +24,10 @@ class LoginPage extends Component {
   login = (e) => {
     e.preventDefault();
     userService.login({email: this.state.email, pw: this.state.pw}).then(user => {
-      this.props.dispatch(userAuthenticated(user));
+      this.props.userAuthenticated(user);
       this.props.history.push('/odds');
     }).catch(err => {
-      window.M.toast({ html: err.message, classes: 'toast-error' });
+      this.props.uiToast({ html: err.message, classes: 'toast-error' });
     });
   }
 
@@ -69,5 +70,9 @@ class LoginPage extends Component {
 export default connect(
   (state) => ({
     user: state.userState.user
-  })
+  }),
+  {
+    userAuthenticated,
+    uiToast
+  }
 )(LoginPage);
