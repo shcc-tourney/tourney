@@ -1,5 +1,6 @@
 import * as actions from '../actions/actionNames';
 import { fetchBegin, fetchEnd } from '../actions/actionCreatorsSystem';
+import { uiToast } from '../actions/actionCreatorsUI';
 import tokenService from '../../utils/tokenService';
 
 const apiReqRealtimeResMiddleware = ({ dispatch }) => next => action => {
@@ -18,8 +19,11 @@ const apiReqRealtimeResMiddleware = ({ dispatch }) => next => action => {
   if (token) options.headers = Object.assign({}, options.headers, {'Authorization': `Bearer ${token}`});
   
   dispatch(fetchBegin());
-  return fetch(payload.url, options).then(res => res.json())
-    .catch(() => {/* show toast error via redux action */})
+  return fetch(payload.url, options).then(res => {
+      if (res.ok) return res.json();
+      throw new Error('Response to fetch did not return a status of OK');
+    })
+    .catch((err) => dispatch(uiToast({html: err.message, classes: 'toast-error'})))
     .finally(() => dispatch(fetchEnd()))
 };
 
