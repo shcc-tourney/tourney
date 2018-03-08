@@ -1,3 +1,6 @@
+/*--- universal actions ---*/
+export const API_REQ_RT_RES = 'API_REQ_RT_RES';
+
 /*--- systemState actions ---*/
 export const WS_CONNECT = 'WS_CONNECT';
 export const WS_DISCONNECT = 'WS_DISCONNECT';

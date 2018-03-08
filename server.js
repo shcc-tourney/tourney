@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 
 // Put API routes here
+app.use('/rt', require('./routes/api/realtimeResponse'));
 app.use('/api/users', require('./routes/api/users'));
 
 // a SPA's client-side routing to properly work

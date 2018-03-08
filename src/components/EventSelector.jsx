@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './EventSelector.css';
+import { rtTest } from '../redux/actions/actionCreatorsRealtimeResponse';
 
 const EventSelector = (props) => {
   return (
     <div className='EventSelector col-section'>
       <div className='section-title'>SELECT EVENT</div>
       <div className='EventSelector-top-controls'>
-        <button className="btn-small waves-light waves-effect"><i className="material-icons  left">add</i>Tourney</button>
+        <button onClick={props.rtTest} className="btn-small waves-light waves-effect"><i className="material-icons  left">add</i>Tourney</button>
       </div>
       <section>
         <div className="card">
@@ -61,5 +62,8 @@ const EventSelector = (props) => {
 export default connect(
   (state) => ({
     
-  })
+  }),
+  {
+    rtTest
+  }
 )(EventSelector);
