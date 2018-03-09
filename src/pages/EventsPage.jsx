@@ -8,7 +8,7 @@ class EventsPage extends Component {
   render() {
     return (
       <div className='EventsPage'>
-        <TourneySelector curTourney={this.props.curTourney} />
+        <TourneySelector curTourney={this.props.current} />
         <EventList />
       </div>
     );
@@ -17,7 +17,8 @@ class EventsPage extends Component {
 
 export default connect(
   (state) => ({
-    curTourney: state.curTourneyState
+    tourneys: state.tourneysState.tourneys,
+    current: state.tourneysState.current
   }),
   {
     
