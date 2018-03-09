@@ -1,12 +1,12 @@
-.EventSelector {
+.TourneySelector {
   grid-area: sidebar;
 }
 
-.EventSelector section {
+.TourneySelector section {
   overflow-y: scroll;
 }
 
-.EventSelector-top-controls {
+.TourneySelector-top-controls {
   display: flex;
   justify-content: flex-end;
   padding: 10px 0 20px;

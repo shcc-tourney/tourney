@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './EventsPage.css';
-import EventSelector from '../components/EventSelector';
+import TourneySelector from '../components/TourneySelector';
 import EventList from '../components/EventList';
 
 class EventsPage extends Component {
   render() {
     return (
       <div className='EventsPage'>
-        <EventSelector />
+        <TourneySelector curTourney={this.props.curTourney} />
         <EventList />
       </div>
     );
@@ -16,5 +16,10 @@ class EventsPage extends Component {
 }
 
 export default connect(
-
+  (state) => ({
+    curTourney: state.curTourneyState
+  }),
+  {
+    
+  }
 )(EventsPage);

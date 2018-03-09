@@ -45,15 +45,15 @@ body {
 }
 
 .section-title {
-  background-color: var(--light-green);
-  color: var(--light-beige);
+  color: var(--light-green);
   opacity: 0.5;
   height: 42px;
   font-size: 15px;
   letter-spacing: 3px;
   text-align: center;
-  margin: -10px -10px 0;
+  margin: -10px 0 0;
   padding: 10px;
+  border-bottom: 1px solid var(--light-green);
 }
 
 /* cards */
