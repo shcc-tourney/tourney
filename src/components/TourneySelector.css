@@ -12,3 +12,16 @@
   padding: 10px 0 20px;
 }
 
+.TourneySelector-Previous {
+  margin-top: 15px;
+}
+
+.TourneySelector .card:not(.active) {
+  cursor: pointer;
+}
+
+.TourneySelector .card.active {
+  background-color: var(--light-green);
+  color: var(--light-beige);
+}
+
