@@ -48,8 +48,9 @@ body {
   color: var(--light-green);
   opacity: 0.5;
   height: 42px;
-  font-size: 15px;
+  font-size: 13px;
   letter-spacing: 3px;
+  white-space: nowrap;
   text-align: center;
   margin: -10px 0 0;
   padding: 10px;
@@ -63,6 +64,18 @@ body {
 
 .App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color: white;
+}
+
+.App .card .card-content .card-title {
+  line-height: 28px;
+}
+
+.App .card dl dt {
+  color: grey;
+}
+
+.App .card dl dd {
+  margin-left: 15px;
 }
 
 
