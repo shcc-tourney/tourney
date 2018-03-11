@@ -57,17 +57,31 @@ body {
   border-bottom: 1px solid var(--light-green);
 }
 
-/* cards */
-.App div.card-action {
-  text-align: right;
+/* misc materialize overrides */
+.App span.badge {
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: white;
+  background-color: var(--brown);
+  border-radius: 2px;
 }
 
+
+/* cards */
 .App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
-  color: white;
+  color: var(--brown);
+}
+
+.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+  color: var(--green);
+  text-decoration: underline;
 }
 
 .App .card .card-content .card-title {
-  line-height: 28px;
+  text-align: center;
+  line-height: 26px;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 26px;
 }
 
 .App .card dl dt {
@@ -76,6 +90,10 @@ body {
 
 .App .card dl dd {
   margin-left: 15px;
+}
+
+.App .card dd span {
+  color: grey;
 }
 
 
