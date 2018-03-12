@@ -1,9 +1,7 @@
 import * as actions from '../actions/actionNames';
-import userService from '../../utils/userService';
-
 // reducer for userState slice of state
 
-export default (state = { user: userService.getUser() }, action) => {
+export default (state = { user: null}, action) => {
   switch (action.type) {
     case actions.USER_AUTHENTICATED:
       return { ...state, user: action.payload };
