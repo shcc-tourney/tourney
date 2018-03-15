@@ -7,4 +7,11 @@ export const setCurrentTourney = (currentTourney) => {
   }
 };
 
+export const setPastTourneys = (allTourneys) => {
+  return {
+    type: actions.SET_PAST_TOURNEYS,
+    payload: allTourneys  // might include current tourney
+  }
+};
+
 

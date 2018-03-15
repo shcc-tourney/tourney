@@ -9,5 +9,6 @@ var checkAuth = require('../../config/auth').checkAuth;
 router.get('/current', tourneysCtrl.getCurrent);
 
 /*-- Authenticated Routes --*/
+router.get('/past', checkAuth, tourneysCtrl.getPast);
 
 module.exports = router;

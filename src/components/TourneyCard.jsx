@@ -1,6 +1,6 @@
 import React from 'react';
 import './TourneyCard.css';
-import { numDays as tourneyNumDays } from '../utils/appLogicTourney';
+import { numDays as tourneyNumDays, isPending } from '../utils/appLogicTourney';
 import { formatDateRange } from '../utils/utilities';
 
 const TourneyCard = ({tourney}) => {
@@ -8,7 +8,9 @@ const TourneyCard = ({tourney}) => {
   return (
     <article className = "TourneyCard card hoverable" >
       <div className="card-content">
-        <span className="card-title">{tourney.name}<a href="" className="secondary-content"><i className="material-icons">edit</i></a></span>
+        <span className="card-title">{tourney.name}
+          {isPending(tourney) && <a href="" className="secondary-content"><i className="material-icons">edit</i></a>}
+        </span>
         <dl>
           <dt>Dates</dt>
           <dd>{formatDateRange(tourney.startDate, tourney.endDate, true)}</dd>

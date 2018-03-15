@@ -16,7 +16,7 @@ const TourneySelector = ({ curTourney, prevTourneys }) => {
       }
       <div className='section-title TourneySelector-Previous'>PREVIOUS TOURNEYS</div>
       {prevTourneys.length ?
-        <p>Need to map prevTourneys</p>
+        prevTourneys.map(t => <TourneyCard tourney={t} key={t._id} />)
         :
         <div className="TourneySelector-no-data">
           <p>There are no previous tourneys</p>

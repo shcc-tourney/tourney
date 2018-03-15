@@ -22,4 +22,10 @@ tourneySchema.virtual('isPending').get(function() {
   return (utilities.dateDiff(utilities.todayWithoutTime(), this.endDate, 'days') >= 0);
 });
 
+tourneySchema.statics.getPast = function () {
+  var today = utilities.todayWithoutTime();
+  today.setDate(today.getDate() + 1);
+  return this.find({}).where('endDate').lt(today).exec();
+};
+
 module.exports = mongoose.model('Tourney', tourneySchema);
