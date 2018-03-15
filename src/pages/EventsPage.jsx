@@ -17,8 +17,8 @@ class EventsPage extends Component {
 
 export default connect(
   (state) => ({
-    curTourney: state.tourneysState.current,
-    prevTourneys: state.tourneysState.previous
+    curTourney: state.tourneyState.current,
+    prevTourneys: state.tourneyState.previous
   }),
   {
     

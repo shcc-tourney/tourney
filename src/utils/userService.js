@@ -1,5 +1,11 @@
 import tokenService from './tokenService';
 
+export default {
+  getUser,
+  login,
+  forgetMe
+};
+
 function getUser() {
   return tokenService.getUserFromToken();
 }
@@ -23,9 +29,3 @@ function login(creds) {
 function forgetMe() {
   tokenService.removeToken();
 }
-
-export default {
-  getUser,
-  login,
-  forgetMe
-};

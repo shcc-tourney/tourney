@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import systemReducer from './system';
 import userReducer from './user';
-import tourneysReducer from './tourneys';
+import tourneyReducer from './tourney';
 
 export default combineReducers({
   systemState: systemReducer,
   userState: userReducer,
-  tourneysState: tourneysReducer,
+  tourneyState: tourneyReducer,
 });
