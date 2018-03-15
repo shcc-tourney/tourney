@@ -1,3 +1,9 @@
-.TourneyCard .card .card-title {
+.TourneyCard.card .card-content .card-title {
   font-size: 20px;
+  text-align: left;
+}
+
+.TourneyCard .card-action a {
+  display: inline-flex;
+  flex-wrap: nowrap;
 }

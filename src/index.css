@@ -38,11 +38,10 @@ body {
 .col-section {
   display: flex;
   flex-flow: column nowrap;
-  height: calc(100vh - 128px);
+  /* height: calc(100vh - 128px); */
   background-color: var(--light-beige);
   opacity: 0.85;
   padding: 10px;
-  overflow: hidden;
 }
 
 .section-title {
@@ -67,7 +66,6 @@ body {
   border-radius: 2px;
 }
 
-
 /* cards */
 .App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color: var(--brown);
@@ -85,6 +83,10 @@ body {
   margin-bottom: 26px;
 }
 
+.App .card .card-content .card-title i {
+  line-height: 26px;
+}
+
 .App .card dl dt {
   color: grey;
 }
@@ -96,5 +98,3 @@ body {
 .App .card dd span {
   color: grey;
 }
-
-

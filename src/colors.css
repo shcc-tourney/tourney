@@ -110,3 +110,7 @@
 .App .dropdown-button {
   outline: none;
 }
+
+.App .secondary-content {
+  color: var(--brown);
+}

@@ -8,7 +8,7 @@ const TourneyCard = ({tourney}) => {
   return (
     <article className = "TourneyCard card hoverable" >
       <div className="card-content">
-        <span className="card-title">{tourney.name}</span>
+        <span className="card-title">{tourney.name}<a href="" className="secondary-content"><i className="material-icons">edit</i></a></span>
         <dl>
           <dt>Dates</dt>
           <dd>{formatDateRange(tourney.startDate, tourney.endDate, true)}</dd>
