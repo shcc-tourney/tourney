@@ -8,7 +8,7 @@ module.exports = {
 
 function getCurrent(req, res) {
   var today = utilities.todayWithoutTime();
-  Tourney.findOne().where('endDate').gte(today).exec()
+  Tourney.getCurrent()
   .then(tourney => res.json(tourney));
 }
 

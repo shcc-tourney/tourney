@@ -22,6 +22,11 @@ tourneySchema.virtual('isPending').get(function() {
   return (utilities.dateDiff(utilities.todayWithoutTime(), this.endDate, 'days') >= 0);
 });
 
+tourneySchema.statics.getCurrent = function () {
+  var today = utilities.todayWithoutTime();
+  return this.findOne().where('endDate').gte(today).exec();
+};
+
 tourneySchema.statics.getPast = function () {
   var today = utilities.todayWithoutTime();
   today.setDate(today.getDate() + 1);
