@@ -2,12 +2,12 @@ import React from 'react';
 import './TourneySelector.css';
 import TourneyCard from './TourneyCard';
 
-const TourneySelector = ({ curTourney, prevTourneys }) => {
+const TourneySelector = ({ curTourney, prevTourneys, selectedTourney }) => {
   return (
     <div className='TourneySelector col-section'>
       <div className='section-title'>CURRENT TOURNEY</div>
       { curTourney ?
-        <TourneyCard tourney={curTourney}/>
+        <TourneyCard selected={curTourney === selectedTourney} tourney={curTourney}/>
       :
         <div className="TourneySelector-no-data">
           <p>There is no upcoming tourney</p>

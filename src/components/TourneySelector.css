@@ -15,8 +15,8 @@
 }
 
 .TourneySelector .card.active {
-  background-color: var(--light-green);
-  color: var(--light-beige);
+  border: 3px solid var(--dark-green);
+  cursor: default;
 }
 
 .TourneySelector-no-data {

@@ -16,8 +16,12 @@ class EventsPage extends Component {
   render() {
     return (
       <div className='EventsPage'>
-        <TourneySelector curTourney={this.props.curTourney} prevTourneys={this.props.prevTourneys} />
-        <EventList />
+        <TourneySelector
+          curTourney={this.props.curTourney}
+          prevTourneys={this.props.prevTourneys}
+          selectedTourney={this.props.selectedTourney}
+        />
+        <EventList tourney={this.props.selectedTourney}/>
       </div>
     );
   }

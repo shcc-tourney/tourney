@@ -6,7 +6,7 @@ var tourneySchema = new mongoose.Schema({
   name: {type: String, required: true},
   startDate: {type: Date, required: true},
   endDate: {type: Date, required: true},
-  nextTicketNo: {type: Number, default: 1},
+  nextWagerNo: {type: Number, default: 1},
   takePercentage: {type: Number, default: 10},
   nextCompetitorNo: {type: Number, default: 1},
   competitors: [tourneyCompetitorSchema]

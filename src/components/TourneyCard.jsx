@@ -3,10 +3,10 @@ import './TourneyCard.css';
 import { numDays as tourneyNumDays, isPending } from '../utils/appLogicTourney';
 import { formatDateRange } from '../utils/utilities';
 
-const TourneyCard = ({tourney}) => {
+const TourneyCard = ({tourney, selected}) => {
   let numDays = tourneyNumDays(tourney);
   return (
-    <article className = "TourneyCard card hoverable" >
+    <article className={`TourneyCard card ${selected ? 'active': 'hoverable'}`} >
       <div className="card-content">
         <span className="card-title">{tourney.name}
           {isPending(tourney) && <a href="" className="secondary-content"><i className="material-icons">edit</i></a>}
