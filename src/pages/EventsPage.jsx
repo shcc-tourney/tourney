@@ -13,26 +13,19 @@ class EventsPage extends Component {
       successActionCreator: setPastTourneys
     });
   }
+
   render() {
     return (
       <div className='EventsPage'>
-        <TourneySelector
-          curTourney={this.props.curTourney}
-          prevTourneys={this.props.prevTourneys}
-          selectedTourney={this.props.selectedTourney}
-        />
-        <EventList tourney={this.props.selectedTourney}/>
+        <TourneySelector/>
+        <EventList/>
       </div>
     );
   }
 }
 
 export default connect(
-  (state) => ({
-    curTourney: state.tourneyState.current,
-    prevTourneys: state.tourneyState.previous,
-    selectedTourney: state.tourneyState.current || (state.tourneyState.previous.length && state.tourneyState.previous) || null
-  }),
+  null,
   {
     apiReq
   }

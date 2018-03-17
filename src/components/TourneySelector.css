@@ -10,15 +10,6 @@
   margin-top: 15px;
 }
 
-.TourneySelector .card:not(.active) {
-  cursor: pointer;
-}
-
-.TourneySelector .card.active {
-  border: 3px solid var(--dark-green);
-  cursor: default;
-}
-
 .TourneySelector-no-data {
   text-align: center;
 }

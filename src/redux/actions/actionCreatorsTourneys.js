@@ -14,4 +14,9 @@ export const setPastTourneys = (allTourneys) => {
   }
 };
 
-
+export const setSelectedTourney = (tourney) => {
+  return {
+    type: actions.SET_SELECTED_TOURNEY,
+    payload: tourney
+  }
+};

@@ -35,10 +35,13 @@ body {
   min-width: 200px;
 }
 
+.App h1.heading, .App h2.heading, .App h3.heading, .App h4.heading, .App h5.heading {
+  color: rgba(0, 0, 0, 0.7);
+}
+
 .col-section {
   display: flex;
   flex-flow: column nowrap;
-  /* height: calc(100vh - 128px); */
   background-color: var(--light-beige);
   opacity: 0.85;
   padding: 10px;
@@ -48,6 +51,7 @@ body {
   color: var(--light-green);
   opacity: 0.5;
   height: 42px;
+  width: 100%;
   font-size: 13px;
   letter-spacing: 3px;
   white-space: nowrap;

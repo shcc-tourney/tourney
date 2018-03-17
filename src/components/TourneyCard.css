@@ -1,3 +1,13 @@
+.TourneyCard.card:not(.active) {
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.TourneyCard.card.active {
+  border: 2px solid var(--dark-green);
+  cursor: default;
+}
+
 .TourneyCard.card .card-content .card-title {
   font-size: 20px;
   text-align: left;

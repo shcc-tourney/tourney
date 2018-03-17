@@ -1,5 +1,4 @@
 .EventList {
   grid-area: content;
-  background-color: var(--light-beige);
-  opacity: 0.85;
+  align-items: center;
 }

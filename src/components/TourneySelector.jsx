@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './TourneySelector.css';
 import TourneyCard from './TourneyCard';
 
@@ -7,7 +8,10 @@ const TourneySelector = ({ curTourney, prevTourneys, selectedTourney }) => {
     <div className='TourneySelector col-section'>
       <div className='section-title'>CURRENT TOURNEY</div>
       { curTourney ?
-        <TourneyCard selected={curTourney === selectedTourney} tourney={curTourney}/>
+        <TourneyCard
+          selected={curTourney === selectedTourney}
+          tourney={curTourney}
+        />
       :
         <div className="TourneySelector-no-data">
           <p>There is no upcoming tourney</p>
@@ -16,7 +20,7 @@ const TourneySelector = ({ curTourney, prevTourneys, selectedTourney }) => {
       }
       <div className='section-title TourneySelector-Previous'>PREVIOUS TOURNEYS</div>
       {prevTourneys.length ?
-        prevTourneys.map(t => <TourneyCard tourney={t} key={t._id} />)
+        prevTourneys.map(t => <TourneyCard selected={t === selectedTourney} tourney={t} key={t._id} />)
         :
         <div className="TourneySelector-no-data">
           <p>There are no previous tourneys</p>
@@ -26,4 +30,12 @@ const TourneySelector = ({ curTourney, prevTourneys, selectedTourney }) => {
   );
 };
 
-export default TourneySelector;
+export default connect(
+  (state) => ({
+    curTourney: state.tourneyState.current,
+    prevTourneys: state.tourneyState.previous,
+    selectedTourney: state.tourneyState.selected
+  }),
+  {
+  }
+)(TourneySelector);

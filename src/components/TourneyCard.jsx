@@ -2,11 +2,14 @@ import React from 'react';
 import './TourneyCard.css';
 import { numDays as tourneyNumDays, isPending } from '../utils/appLogicTourney';
 import { formatDateRange } from '../utils/utilities';
+import { connect } from 'react-redux';
+import { setSelectedTourney } from '../redux/actions/actionCreatorsTourneys';
 
-const TourneyCard = ({tourney, selected}) => {
+const TourneyCard = (props) => {
+  let { tourney, selected } = props;
   let numDays = tourneyNumDays(tourney);
   return (
-    <article className={`TourneyCard card ${selected ? 'active': 'hoverable'}`} >
+    <article className={`TourneyCard card ${selected ? 'active': 'hoverable'}`} onClick={selected ? null : () => props.setSelectedTourney(tourney)}>
       <div className="card-content">
         <span className="card-title">{tourney.name}
           {isPending(tourney) && <a href="" className="secondary-content"><i className="material-icons">edit</i></a>}
@@ -36,4 +39,9 @@ const TourneyCard = ({tourney, selected}) => {
   );
 };
 
-export default TourneyCard;
+export default connect(
+  null,
+  {
+    setSelectedTourney
+  }
+)(TourneyCard);
