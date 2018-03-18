@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var eventSchema = require('./eventSchema');
 var tourneyCompetitorSchema = require('./tourneyCompetitorSchema');
 var utilities = require('../utils/utilities');
 
@@ -9,7 +10,8 @@ var tourneySchema = new mongoose.Schema({
   nextWagerNo: {type: Number, default: 1},
   takePercentage: {type: Number, default: 10},
   nextCompetitorNo: {type: Number, default: 1},
-  competitors: [tourneyCompetitorSchema]
+  competitors: [tourneyCompetitorSchema],
+  events: [eventSchema]
 }, {
     timestamps: true
 });
