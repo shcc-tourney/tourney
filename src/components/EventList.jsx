@@ -8,7 +8,7 @@ const EventList = ({tourney}) => {
   return (
     <div className='EventList col-section'>
       <div className='section-title'>EVENTS<span>{title}</span></div>
-      {tourney && <div><button className='btn-small'>Create Event</button></div>}
+      {tourney && <div className='section-control-bar'><button className='btn-small'>Create Event</button></div>}
       { tourney ?
         tourney.events.map(e => <EventCard event={e} key={e._id}/>)
         :

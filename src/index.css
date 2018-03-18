@@ -47,6 +47,13 @@ body {
   padding: 10px;
 }
 
+.section-control-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 8px 0;
+}
+
 .section-title {
   color: var(--light-green);
   opacity: 0.5;
@@ -56,7 +63,7 @@ body {
   letter-spacing: 3px;
   white-space: nowrap;
   text-align: center;
-  margin: -10px 0 0;
+  margin: -10px 0 5px;
   padding: 10px;
   border-bottom: 1px solid var(--light-green);
 }
@@ -81,7 +88,8 @@ body {
 }
 
 .App .card .card-content .card-title {
-  text-align: center;
+  font-size: 20px;
+  text-align: left;
   line-height: 26px;
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 26px;
