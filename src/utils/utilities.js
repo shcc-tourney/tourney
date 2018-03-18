@@ -39,3 +39,18 @@ export function todayWithoutTime() {
   let dt = new Date();
   return new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
 }
+
+// accepts an object and converts properties with string values that look to be
+// dates into actual date objects
+export function convertDateStringPropsToDateObjects(obj) {
+  let re = /\d{4}-[01]\d-[0123]\dT.{12}Z/;
+  for (let key in obj) {
+    if (typeof obj[key] === 'string' && re.test(obj[key])) {
+      obj[key] = new Date(obj[key]);
+    } else if (Array.isArray(obj[key])) {
+      obj[key].forEach(elem => convertDateStringPropsToDateObjects(elem));
+    } else if (typeof obj[key] === 'object') {
+      convertDateStringPropsToDateObjects(obj[key]);
+    }
+  }
+}

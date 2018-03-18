@@ -18,11 +18,6 @@ export default (state = initialState, action) => {
     case actions.SET_PAST_TOURNEYS:
       // exclude the current tourney
       let tourneys = state.current ? action.payload.filter(t => t._id !== state.current._id) : action.payload;
-      tourneys = tourneys.map(t => {
-        t.startDate = new Date(t.startDate);
-        t.endDate = new Date(t.endDate);
-        return t;
-      });
       return { ...state, previous: tourneys, selected: (state.selected || (tourneys.length && tourneys[0]))};
     case actions.SET_SELECTED_TOURNEY:
       return {...state, selected: action.payload}

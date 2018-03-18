@@ -10,6 +10,7 @@ class EventsPage extends Component {
   componentDidMount() {
     this.props.apiReq({
       url: '/api/tourneys/past',
+      convertStringsToDates: true,
       successActionCreator: setPastTourneys
     });
   }

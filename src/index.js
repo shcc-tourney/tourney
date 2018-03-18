@@ -18,6 +18,7 @@ import './utils/socket';
 store.dispatch(apiReq({
   url: '/api/tourneys/current',
   noToken: true,
+  convertStringsToDates: true,
   successActionCreator: setCurrentTourney
 }));
 

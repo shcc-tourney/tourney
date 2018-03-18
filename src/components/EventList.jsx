@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './EventList.css';
+import EventCard from './EventCard';
 
 const EventList = ({tourney}) => {
+  let title = tourney ? ` — ${tourney.name}` : '';
   return (
     <div className='EventList col-section'>
-      <div className='section-title'>EVENTS</div>
+      <div className='section-title'>EVENTS<span>{title}</span></div>
+      {tourney && <div><button className='btn-small'>Create Event</button></div>}
       { tourney ?
-        <h4 className='heading'>{tourney.name}</h4>
+        tourney.events.map(e => <EventCard event={e} key={e._id}/>)
         :
         <h4 className='heading'>No Tourney Selected</h4>
       }

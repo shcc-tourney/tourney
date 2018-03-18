@@ -35,7 +35,7 @@ const TourneyCard = (props) => {
       <div className="card-action">
         <a href="">Competitors<span data-badge-caption='' className='badge'>{tourney.competitors.length}</span></a>
       </div>
-    </article >
+    </article>
   );
 };
 

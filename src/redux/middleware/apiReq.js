@@ -2,6 +2,7 @@ import * as actions from '../actions/actionNames';
 import { fetchBegin, fetchEnd } from '../actions/actionCreatorsSystem';
 import { uiToast } from '../actions/actionCreatorsUI';
 import tokenService from '../../utils/tokenService';
+import { convertDateStringPropsToDateObjects } from '../../utils/utilities';
 
 const apiReq = ({ dispatch }) => next => action => {
   if (action.type !== actions.API_REQ) return next(action);
@@ -24,6 +25,7 @@ const apiReq = ({ dispatch }) => next => action => {
       throw new Error('Response to fetch did not return a status of OK');
     })
     .then(data => {
+      if (payload.convertStringsToDates) convertDateStringPropsToDateObjects(data);
       if (payload.successActionCreator) return dispatch(payload.successActionCreator(data));
       return data;
     })
