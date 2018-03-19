@@ -33,6 +33,18 @@ const EventCard = ({ event }) => {
           <dd>$112<span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>$98</dd>
           <dt>Computed Take&nbsp;&nbsp;/&nbsp;&nbsp;Actual</dt>
           <dd>$13<span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>$27</dd>
+          <hr/>
+          <dt>Results</dt>
+          { event.status === 'OPEN' ?
+            <dd>Wagering still open...</dd>
+          :
+            event.status ==='CLOSED' ?
+              <dd>Wagering is closed. Results pending...</dd>
+            :
+              <dd>
+                results go here
+              </dd>
+          }
         </dl>
       </div>
       <div className="card-action">

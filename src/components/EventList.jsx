@@ -10,7 +10,10 @@ const EventList = ({tourney}) => {
       <div className='section-title'>EVENTS<span>{title}</span></div>
       {tourney && <div className='section-control-bar'><button className='btn-small'>Create Event</button></div>}
       { tourney ?
-        tourney.events.map(e => <EventCard event={e} key={e._id}/>)
+        tourney.events.length ?
+          tourney.events.map(e => <EventCard event={e} key={e._id}/>)
+          :
+          <h4 className='heading'>No Events for {tourney.name} Created Yet</h4>
         :
         <h4 className='heading'>No Tourney Selected</h4>
       }
