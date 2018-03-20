@@ -43,6 +43,7 @@ export function todayWithoutTime() {
 // accepts an object and converts properties with string values that look to be
 // dates into actual date objects
 export function convertDateStringPropsToDateObjects(obj) {
+  if (typeof obj !== 'object') return obj;
   let re = /\d{4}-[01]\d-[0123]\dT.{12}Z/;
   for (let key in obj) {
     if (typeof obj[key] === 'string' && re.test(obj[key])) {

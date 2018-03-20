@@ -12,8 +12,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case actions.SET_CURRENT_TOURNEY:
-      action.payload.startDate = new Date(action.payload.startDate);
-      action.payload.endDate = new Date(action.payload.endDate);
       return {...state, current: action.payload, selected: (state.selected || action.payload)};
     case actions.SET_PAST_TOURNEYS:
       // exclude the current tourney

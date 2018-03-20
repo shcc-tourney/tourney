@@ -7,7 +7,6 @@ module.exports = {
 };
 
 function getCurrent(req, res) {
-  var today = utilities.todayWithoutTime();
   Tourney.getCurrent()
   .then(tourney => res.json(tourney));
 }

@@ -10,7 +10,7 @@ const apiReq = ({ dispatch }) => next => action => {
   let options = {
     method: payload.method || 'GET',
     cache: 'no-store'
-  }
+  };
   if (payload.data) {
     options.data = JSON.stringify(payload.data);
     options.headers = {'Content-Type': 'application/json'};
