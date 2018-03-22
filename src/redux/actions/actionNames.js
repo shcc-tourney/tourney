@@ -1,5 +1,6 @@
 /*--- universal actions ---*/
 export const API_REQ_RT_RES = 'API_REQ_RT_RES';
+export const API_REQ = 'API_REQ';
 
 /*--- systemState actions ---*/
 export const WS_CONNECT = 'WS_CONNECT';
@@ -14,3 +15,5 @@ export const UI_TOAST = 'UI_TOAST';
 export const USER_AUTHENTICATED = 'USER_AUTHENTICATED';
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT';
 
+/*--- tourneyState actions ---*/
+export const SET_CURRENT_TOURNEY = 'SET_CURRENT_TOURNEY';

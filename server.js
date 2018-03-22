@@ -19,6 +19,7 @@ app.use(require('./config/auth').addUserFromToken);
 // Put API routes here
 app.use('/rt', require('./routes/api/realtimeResponse'));
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/tourneys', require('./routes/api/tourneys'));
 
 // a SPA's client-side routing to properly work
 app.get('/*', function (req, res) {

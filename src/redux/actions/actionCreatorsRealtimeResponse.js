@@ -6,7 +6,7 @@ export const rtTest = () => {
     payload: {
       url: '/rt/test'
     }
-  }
+  };
 };
 
 
