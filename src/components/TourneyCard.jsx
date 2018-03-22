@@ -18,8 +18,6 @@ const TourneyCard = ({tourney}) => {
               <dd>{numDays}</dd>
             </React.Fragment>
           }
-          <dt>Min Wager / Max / Increment</dt>
-          <dd>$5<span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>$500<span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>$1</dd>
           <hr/>
           <dt># Wagers / $ Wagered</dt>
           <dd>5<span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>$125</dd>

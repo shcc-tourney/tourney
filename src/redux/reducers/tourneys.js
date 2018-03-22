@@ -5,17 +5,17 @@ import * as actions from '../actions/actionNames';
 
 // ******** test tourney *********
 const initialState = {
-  tourneys: [
-    {
-      _id: 123,
-      name: 'Hustlers - 2018',
-      current: true,
-      startDate: new Date(2018, 3, 13),
-      endDate: new Date(2018, 3, 14),
-      nextTicketNo: 1,
-      takePercentage: 10,
-      competitors: []
-    }
+  previous: [
+    // {
+    //   _id: 123,
+    //   name: 'Hustlers - 2018',
+    //   current: true,
+    //   startDate: new Date(2018, 3, 13),
+    //   endDate: new Date(2018, 3, 14),
+    //   nextTicketNo: 1,
+    //   takePercentage: 10,
+    //   competitors: []
+    // }
   ],
   current: null
 };
