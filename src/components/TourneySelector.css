@@ -6,12 +6,6 @@
   overflow-y: scroll;
 }
 
-.TourneySelector-top-controls {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 0 20px;
-}
-
 .TourneySelector-Previous {
   margin-top: 15px;
 }
@@ -25,3 +19,10 @@
   color: var(--light-beige);
 }
 
+.TourneySelector-no-data {
+  text-align: center;
+}
+
+.TourneySelector-no-data p {
+  font-size: 18px;
+}
