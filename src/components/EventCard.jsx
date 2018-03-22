@@ -1,7 +1,6 @@
 import React from 'react';
 import './EventCard.css';
 import { connect } from 'react-redux';
-import { setSelectedTourney } from '../redux/actions/actionCreatorsTourneys';
 
 const EventCard = ({ event }) => {
   let winningPositions = ['WIN', 'PLACE', 'SHOW']
