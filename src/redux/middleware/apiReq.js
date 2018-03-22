@@ -25,12 +25,15 @@ const apiReq = ({ dispatch }) => next => action => {
       throw new Error('Response to fetch did not return a status of OK');
     })
     .then(data => {
+      dispatch(fetchEnd());
       if (payload.convertStringsToDates) convertDateStringPropsToDateObjects(data);
       if (payload.successActionCreator) return dispatch(payload.successActionCreator(data));
       return data;
     })
-    .catch((err) => dispatch(uiToast({html: err.message, classes: 'toast-error'})))
-    .finally(() => dispatch(fetchEnd()))
+    .catch((err) => {
+      dispatch(fetchEnd());
+      dispatch(uiToast({html: err.message, classes: 'toast-error'}));
+    });
 };
 
 export default apiReq;

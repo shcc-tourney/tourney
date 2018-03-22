@@ -20,11 +20,14 @@ const apiReqRealtimeResMiddleware = ({ dispatch }) => next => action => {
   
   dispatch(fetchBegin());
   return fetch(payload.url, options).then(res => {
+      dispatch(fetchEnd());
       if (res.ok) return res.json();
       throw new Error('Response to fetch did not return a status of OK');
     })
-    .catch((err) => dispatch(uiToast({html: err.message, classes: 'toast-error'})))
-    .finally(() => dispatch(fetchEnd()))
+    .catch((err) => {
+      dispatch(fetchEnd());
+      dispatch(uiToast({html: err.message, classes: 'toast-error'}))
+    });
 };
 
 export default apiReqRealtimeResMiddleware;
