@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
 var wagerSchema = require('./wagerSchema');
-var utilities = require('../utils/utilities');
 
 var eventSchema = new mongoose.Schema({
   title: {type: String, required: true},
-  date: {type: Date, default: utilities.todayWithoutTime},
+  resultsDate: {type: Date},
   status: {type: String, default: 'OPEN', enum: ['OPEN', 'CLOSED', 'OFFICIAL']},
   payoutPositions: {type: Number, default: 3, min: 1, max: 3},
   betMin: {type: Number, default: 5},

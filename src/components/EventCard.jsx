@@ -1,6 +1,7 @@
 import React from 'react';
 import './EventCard.css';
 import { connect } from 'react-redux';
+import { todayWithoutTime } from '../utils/utilities';
 
 const EventCard = ({ event }) => {
   let winningPositions = ['WIN', 'PLACE', 'SHOW']
@@ -19,8 +20,8 @@ const EventCard = ({ event }) => {
         <dl>
           <dt>Status</dt>
           <dd>{event.status}</dd>
-          <dt>Date</dt>
-          <dd>{event.date.toDateString()}</dd>
+          <dt>Results Available Date</dt>
+          <dd>{event.resultsDate.toDateString()}</dd>
           <dt>Payout Positions</dt>
           <dd>{winningPositions}</dd>
           <dt>Min Bet / Max Bet / Inc Bet</dt>
@@ -35,21 +36,35 @@ const EventCard = ({ event }) => {
           <hr/>
           <dt>Results</dt>
           { event.status === 'OPEN' ?
-            <dd>Wagering still open...</dd>
-          :
-            event.status ==='CLOSED' ?
-              <dd>Wagering is closed. Results pending...</dd>
+              <dd>Wagering still open...</dd>
             :
+              event.status ==='CLOSED' ?
+                <dd>Wagering is closed. Results pending...</dd>
+              :
+                <dd>
+                  results go here
+                </dd>
+          }
+          <hr/>
+          <dt>Competitors</dt>
+          { event.competitors.length ?
               <dd>
-                results go here
+              competitors go here
               </dd>
+            :
+              <dd>No competitors assigned to this event yet</dd>
           }
         </dl>
       </div>
       <div className="card-action">
-        <div>Change Status: <a href="">OPEN</a><a href="">CLOSE</a></div>
-        <div><a href="">Competitors<span data-badge-caption='' className='badge'>get #</span></a></div>
-        <a href="">Results<span data-badge-caption='' className='badge'>get #</span></a>
+        { event.status === 'OPEN' ?
+            <React.Fragment>
+              <div><a href="">CHANGE EVENT STATUS TO <span>CLOSE</span> (NO MORE WAGERS)</a></div>
+              <div><a href="">ADD/REMOVE COMPETITORS</a></div>
+            </React.Fragment>
+          :
+           todayWithoutTime() <= event.resultsDate && <div><a href="">RE-OPEN EVENT FOR WAGERING</a></div>
+        }
       </div>
     </article>
   );

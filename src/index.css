@@ -87,6 +87,10 @@ body {
   text-decoration: underline;
 }
 
+.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) span {
+  color: rgba(0, 0, 0, 0.7);
+}
+
 .App .card .card-content .card-title {
   font-size: 20px;
   text-align: left;
