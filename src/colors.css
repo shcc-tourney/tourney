@@ -114,3 +114,11 @@
 .App .secondary-content {
   color: var(--brown);
 }
+
+.App .modal {
+  background-color: var(--beige);
+}
+
+.App .modal h4 {
+  color: rgba(0, 0, 0, 0.7);
+}

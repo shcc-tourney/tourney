@@ -43,7 +43,6 @@ body {
   display: flex;
   flex-flow: column nowrap;
   background-color: var(--light-beige);
-  opacity: 0.85;
   padding: 10px;
 }
 
