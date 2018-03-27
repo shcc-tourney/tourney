@@ -15,8 +15,7 @@ class NavBar extends Component {
   }
 
   componentDidMount() {
-    let $el = window.$(".dropdown-button");
-    if ($el.length) $el.dropdown();
+    window.M.Dropdown.init(this.dropdown, {});
   }
 
   render() {
@@ -46,7 +45,7 @@ class NavBar extends Component {
       <div id='NavBar' className="navbar-fixed">
         <nav>
           <div className="nav-wrapper">
-            <a href="" id="menu-btn" className="left dropdown-button hide-on-large-only" data-target="dropdown1"><i className="material-icons">menu</i></a>
+            <a href="" ref={dd => this.dropdown = dd} id="menu-btn" className="left dropdown-button hide-on-large-only" data-target="dropdown1"><i className="material-icons">menu</i></a>
             <ul id="dropdown1" className="dropdown-content hide-on-large-only">
               { this.props.user ?
                 <React.Fragment>
