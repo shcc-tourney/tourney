@@ -32,9 +32,9 @@ const TourneySelector = ({ curTourney, prevTourneys, selectedTourney }) => {
 
 export default connect(
   (state) => ({
-    curTourney: state.tourneyState.current,
-    prevTourneys: state.tourneyState.previous,
-    selectedTourney: state.tourneyState.selected
+    curTourney: state.tourneysState.current,
+    prevTourneys: state.tourneysState.previous,
+    selectedTourney: state.tourneysState.selected
   }),
   {
   }

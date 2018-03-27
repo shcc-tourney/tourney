@@ -4,7 +4,7 @@ import { uiToast } from '../actions/actionCreatorsUI';
 import tokenService from '../../utils/tokenService';
 
 const apiReqRealtimeResMiddleware = ({ dispatch }) => next => action => {
-  if (action.type !== actions.API_REQ_RT_RES) return next(action);
+  if (action.type !== actions.API_REQ_REALTIME_RES) return next(action);
   let { payload } = action;
   let options = {
     method: payload.method || 'GET',

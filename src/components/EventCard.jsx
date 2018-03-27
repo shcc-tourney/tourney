@@ -1,21 +1,28 @@
 import React from 'react';
 import './EventCard.css';
 import { connect } from 'react-redux';
+import { setEditEvent } from '../redux/actions/actionCreatorsEvents';
 import { todayWithoutTime } from '../utils/utilities';
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, setEditEvent }) => {
   let winningPositions = ['WIN', 'PLACE', 'SHOW']
-  .slice(0, event.payoutPositions)
-  .reduce((acc, pos, idx, arr) => {
-    if (idx === 0) return pos;
-    if (idx === arr.length - 1) return acc + ' & ' + pos;
-    return acc + ', ' + pos;
-  });
+    .slice(0, event.payoutPositions)
+    .reduce((acc, pos, idx, arr) => {
+      if (idx === 0) return pos;
+      if (idx === arr.length - 1) return acc + ' & ' + pos;
+      return acc + ', ' + pos;
+    });
+
+  function showEditModal(e) {
+    e.preventDefault();
+    setEditEvent(event);
+  }
+    
   return (
     <article className='EventCard card'>
       <div className="card-content">
         <span className="card-title">{event.title}
-          {event.status === 'OPEN' && <a href="" className="secondary-content"><i className="material-icons">edit</i></a>}
+          {event.status === 'OPEN' && <a href="" onClick={showEditModal} className="secondary-content"><i className="material-icons">edit</i></a>}
         </span>
         <dl>
           <dt>Status</dt>
@@ -73,6 +80,6 @@ const EventCard = ({ event }) => {
 export default connect(
   null,
   {
-  
+    setEditEvent
   }
 )(EventCard);

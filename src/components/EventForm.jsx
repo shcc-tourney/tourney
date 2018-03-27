@@ -1,56 +1,37 @@
 import React, { Component } from 'react';
 
 class EventForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: props.title,
-      date: props.date,
-      payoutPositions: props.payoutPositions,
-      minBet: props.minBet,
-      maxBet: props.maxBet,
-      incBet: props.incBet
-    };
-  }
-
-  updateField = (field, e) => {
-    this.setState({
-      [field]: e.target.value
-    });
-  }
-
   componentDidMount() {
-    window.$('.datepicker').datepicker({closeOnSelect: true});
+    setTimeout(() => document.getElementById('title').focus());
   }
-
   render() {
     return (
-      <form ref={frm => this.form = frm} className="col s12">
+      <form autoComplete='off' className="col s12">
         <div className="row">
           <div className="input-field col s12">
-            <input id='title' className="validate" autoComplete="off" required
-              value={this.state.title} onChange={(e) => this.updateField('title', e)}
+            <input id='title' type='text' autoFocus className="validate" required
+              value={this.props.event.title} onChange={(e) => this.props.updateEditEventField('title', e.target.value)}
             />
             <label htmlFor="title">Title</label>
           </div>
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <input id='date' type='text' className="datepicker" required
-              value={this.state.date} onChange={(e) => this.updateField('date', e)}
+            <input id='resultsDate' type='text' required
+              value={this.props.event.resultDate} onChange={(e) => this.props.updateEditEventField('resultsDate', e.target.value)}
             />
-            <label htmlFor="date">Date</label>
+            <label htmlFor="resultsDate">Results Available Date</label>
           </div>
         </div>
-        <dt>Date</dt>
-        <dd><input name='date' /></dd>
-        <dt>Payout Positions</dt>
-        <dd><input name='payoutPositions' /></dd>
-        <dt>Min Bet / Max Bet / Inc Bet</dt>
-        <dd><input name='minBet' /><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><input name='maxBet' /><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><input name='incBet' /></dd>
       </form>
     );
   }
 }
+    // <dt>Payout Positions</dt>
+    // <dd><input name='payoutPositions' /></dd>
+    // <dt>Min Bet / Max Bet / Inc Bet</dt>
+    // <dd><input name='minBet' /><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><input name='maxBet' /><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><input name='incBet' /></dd>
+
+
 
 export default EventForm;

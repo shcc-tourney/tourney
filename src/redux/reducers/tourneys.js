@@ -1,6 +1,6 @@
 import * as actions from '../actions/actionNames';
 
-// reducer for curTourneyState slice of state
+// reducer for tourneysState slice of state
 
 const initialState = {
   previous: [

@@ -78,16 +78,19 @@ body {
 }
 
 /* cards */
-.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating),
+.App .modal-footer a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color: var(--brown);
 }
 
-.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover,
+.App .modal-footer a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
   color: var(--green);
   text-decoration: underline;
 }
 
-.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) span {
+.App .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) span,
+.App .modal-footer a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) span {
   color: rgba(0, 0, 0, 0.7);
 }
 

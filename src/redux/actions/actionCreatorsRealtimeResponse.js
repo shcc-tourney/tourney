@@ -1,10 +1,13 @@
 import * as actions from './actionNames';
 
-export const rtTest = () => {
+export const apiReqRealtimeRes = ({ url, method, data, noToken }) => {
   return {
-    type: actions.API_REQ_RT_RES,
+    type: actions.API_REQ_REALTIME_RES,
     payload: {
-      url: '/rt/test'
+      url,
+      method,
+      data,
+      noToken
     }
   };
 };
