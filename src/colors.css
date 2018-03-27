@@ -17,6 +17,10 @@
   color: var(--dark-gold);
 }
 
+.App label {
+  color: var(--dark-gold);
+}
+
 /* input text color */
 .input-field input {
   color: var(--green);
@@ -93,6 +97,23 @@
   color: white;
 }
 
+/* radio button */
+.App input[type=radio] + span {
+  color: var(--green);
+}
+
+.App input[type=radio] + span:hover {
+  color: white;
+}
+
+.App [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after {
+  background-color: var(--green);
+}
+
+.App [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
+  border-color: var(--green);
+}
+
 /* buttons */
 .App .btn, .App .btn-large, .App .btn-small {
   background-color: var(--light-green);
@@ -121,4 +142,9 @@
 
 .App .modal h4 {
   color: rgba(0, 0, 0, 0.7);
+}
+
+.App .modal span.group-heading {
+  color: var(--dark-gold);
+  font-size: 12px;
 }

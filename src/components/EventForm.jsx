@@ -9,7 +9,7 @@ class EventForm extends Component {
       <form autoComplete='off' className="col s12">
         <div className="row">
           <div className="input-field col s12">
-            <input id='title' type='text' autoFocus className="validate" required
+            <input id='title' type='text' className="validate" required
               value={this.props.event.title} onChange={(e) => this.props.updateEditEventField('title', e.target.value)}
             />
             <label htmlFor="title">Title</label>
@@ -17,10 +17,13 @@ class EventForm extends Component {
         </div>
         <div className="row">
           <div className="input-field col s12">
-            <input id='resultsDate' type='text' required
-              value={this.props.event.resultDate} onChange={(e) => this.props.updateEditEventField('resultsDate', e.target.value)}
-            />
-            <label htmlFor="resultsDate">Results Available Date</label>
+            <span className='group-heading'>Results Date</span>
+            <p>
+              <label>
+                <input name="resultsDate" className='with-gap' type="radio" />
+                <span>Red</span>
+              </label>
+            </p>
           </div>
         </div>
       </form>

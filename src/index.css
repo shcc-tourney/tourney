@@ -4,6 +4,7 @@ html, body {
 
 * {
   font-family: 'Montserrat', sans-serif;
+  outline: none;
 }
 
 body {
@@ -116,3 +117,4 @@ body {
 .App .card dd span {
   color: grey;
 }
+
