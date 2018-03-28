@@ -12,7 +12,6 @@ class EventForm extends Component {
     let dayCheckboxes = [];
     for (let dayOffset = 0; dayOffset < tourneyDays; dayOffset++) {
       let dt = new Date(start.getFullYear(), start.getMonth(), start.getDate() + dayOffset);
-      console.log(formatDateWithoutDay(dt) === formatDateWithoutDay(this.props.event.resultsDate));
       dayCheckboxes.push(
         <p key={dayOffset}>
           <label>
@@ -25,10 +24,10 @@ class EventForm extends Component {
       );
     }
     return (
-      <form autoComplete='off' className="col s12">
+      <form ref={_frm => this.formEl = _frm} autoComplete='off' className="col s12">
         <div className="row">
           <div className="input-field col s12">
-            <input id='title' type='text' className="validate" required
+            <input id='title' type='text' className="validate" pattern='.+' required
               value={this.props.event.title} onChange={(e) => this.props.updateEditEventField('title', e.target.value)}
             />
             <label htmlFor="title">Title</label>
@@ -70,19 +69,19 @@ class EventForm extends Component {
         <div className="row col s12 m6">
           <div className="col s12 group-heading">Bet Restrictions</div>
           <div className="input-field col s4">
-            <input id='betMin' type='text' className="validate" required
+            <input id='betMin' type='text' className="validate" pattern='\d+' required
               value={this.props.event.betMin} onChange={(e) => this.props.updateEditEventField('betMin', e.target.value)}
             />
             <label htmlFor="betMin" className='active'>Minimum</label>
           </div>
           <div className="input-field col s4">
-            <input id='betMax' type='text' className="validate" required
+            <input id='betMax' type='text' className="validate" pattern='\d+' required
               value={this.props.event.betMax} onChange={(e) => this.props.updateEditEventField('betMax', e.target.value)}
             />
             <label htmlFor="betMax" className='active'>Maximum</label>
           </div>
           <div className="input-field col s4">
-            <input id='betInc' type='text' className="validate" required
+            <input id='betInc' type='text' className="validate" pattern='\d+' required
               value={this.props.event.betInc} onChange={(e) => this.props.updateEditEventField('betInc', e.target.value)}
             />
             <label htmlFor="betInc" className='active'>Increment</label>
@@ -92,11 +91,5 @@ class EventForm extends Component {
     );
   }
 }
-    // <dt>Payout Positions</dt>
-    // <dd><input name='payoutPositions' /></dd>
-    // <dt>Min Bet / Max Bet / Inc Bet</dt>
-    // <dd><input name='minBet' /><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><input name='maxBet' /><span>&nbsp;&nbsp;/&nbsp;&nbsp;</span><input name='incBet' /></dd>
-
-
 
 export default EventForm;
