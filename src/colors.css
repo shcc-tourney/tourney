@@ -144,7 +144,7 @@
   color: rgba(0, 0, 0, 0.7);
 }
 
-.App .modal span.group-heading {
+.App form .group-heading {
   color: var(--dark-gold);
-  font-size: 12px;
+  font-size: 13px;
 }

@@ -27,7 +27,7 @@ const EventCard = ({ event, setEditEvent }) => {
         <dl>
           <dt>Status</dt>
           <dd>{event.status}</dd>
-          <dt>Results Available Date</dt>
+          <dt>Results Available On Date</dt>
           <dd>{event.resultsDate.toDateString()}</dd>
           <dt>Payout Positions</dt>
           <dd>{winningPositions}</dd>

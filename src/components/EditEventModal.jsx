@@ -40,7 +40,7 @@ class EditEventModal extends Component {
       <div ref={modal => this.modalEl = modal} id="edit-event-modal" className="modal">
         <div className="modal-content">
           <h4>Edit Event</h4>
-          <EventForm event={this.state.editEvent} updateEditEventField={this.updateEditEventField}/>
+          <EventForm tourney={this.props.tourney} event={this.state.editEvent} updateEditEventField={this.updateEditEventField}/>
         </div>
         <div className="modal-footer">
           <a href="" onClick={this.cancelEdit} className="btn-flat">cancel</a>
@@ -55,7 +55,8 @@ class EditEventModal extends Component {
 
 export default connect(
   (state) => ({
-    editEvent: state.eventsState.editEvent
+    editEvent: state.eventsState.editEvent,
+    tourney: state.tourneysState.selected,
   }),
   {
     setEditEvent
