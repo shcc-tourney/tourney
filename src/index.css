@@ -29,7 +29,7 @@ body {
 }
 
 .toast-success {
-  background-color: var(--green);
+  background-color: var(--gold);
   color: white;
 }
 
