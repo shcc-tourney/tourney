@@ -1,4 +1,5 @@
 import tokenService from './tokenService';
+import { joinRooms } from './socket';
 
 export default {
   getUser,
@@ -22,10 +23,13 @@ function login(creds) {
     return res.json();
   }).then(({ token }) => {
     tokenService.setToken(token);
+    joinRooms();
     return tokenService.getUserFromToken();
   });
 }
 
 function forgetMe() {
   tokenService.removeToken();
+  // will remove client socket from rooms on server
+  joinRooms();
 }
