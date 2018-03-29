@@ -11,11 +11,11 @@ function loadInitialState() {
   return {
     userState: {
       user: userService.getUser()
-    }
-  };
-}
+    }  
+  };  
+}  
 
-export default createStore(
+ const store = createStore(
   rootReducer,
   loadInitialState(),
   composeWithDevTools(
@@ -26,4 +26,6 @@ export default createStore(
     )
   )
 );
+
+export default store;
 

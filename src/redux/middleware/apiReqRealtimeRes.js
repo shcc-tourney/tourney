@@ -11,7 +11,7 @@ const apiReqRealtimeResMiddleware = ({ dispatch }) => next => action => {
     cache: 'no-store'
   };
   if (payload.data) {
-    options.data = JSON.stringify(payload.data);
+    options.body = JSON.stringify(payload.data);
     options.headers = {'Content-Type': 'application/json'};
   }
 
@@ -23,6 +23,8 @@ const apiReqRealtimeResMiddleware = ({ dispatch }) => next => action => {
       dispatch(fetchEnd());
       if (res.ok) return res.json();
       throw new Error('Response to fetch did not return a status of OK');
+    }).then(data => {
+      if (payload.successCallback) payload.successCallback(data);
     })
     .catch((err) => {
       dispatch(fetchEnd());

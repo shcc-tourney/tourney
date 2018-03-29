@@ -10,13 +10,15 @@ class EventForm extends Component {
     let tourneyDays = numDays(this.props.tourney);
     let start = this.props.tourney.startDate;
     let dayCheckboxes = [];
+    let selectedDate = this.props.event.resultsDate.toDateString();
     for (let dayOffset = 0; dayOffset < tourneyDays; dayOffset++) {
       let dt = new Date(start.getFullYear(), start.getMonth(), start.getDate() + dayOffset);
       dayCheckboxes.push(
         <p key={dayOffset}>
           <label>
             <input name="resultsDate" className='with-gap' type="radio" value={dt.toDateString()}
-              defaultChecked={formatDateWithoutDay(dt) === formatDateWithoutDay(this.props.event.resultsDate)}
+              checked={dt.toDateString() === selectedDate}
+              onChange={(e) => this.props.updateEditEventField('resultsDate', new Date(e.target.value))}
             />
             <span>{dt.toDateString()}</span>
           </label>
@@ -43,7 +45,8 @@ class EventForm extends Component {
             <p>
               <label>
                 <input name="payoutPositions" className='with-gap' type="radio" value='1'
-                  defaultChecked={this.props.event.payoutPositions === 1}
+                  checked={this.props.event.payoutPositions === 1}
+                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value))}
                 />
                 <span>Win</span>
               </label>
@@ -51,16 +54,16 @@ class EventForm extends Component {
             <p>
               <label>
                 <input name="payoutPositions" className='with-gap' type="radio" value='2'
-                  defaultChecked={this.props.event.payoutPositions === 2}
-                />
+                  checked={this.props.event.payoutPositions === 2}
+                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value))}                />
                 <span>Win & Place</span>
               </label>
             </p>
             <p>
               <label>
                 <input name="payoutPositions" className='with-gap' type="radio" value='3'
-                  defaultChecked={this.props.event.payoutPositions === 3}
-                />
+                  checked={this.props.event.payoutPositions === 3}
+                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value))}                />
                 <span>Win, Place & Show</span>
               </label>
             </p>

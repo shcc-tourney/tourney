@@ -12,7 +12,7 @@ const apiReq = ({ dispatch }) => next => action => {
     cache: 'no-store'
   };
   if (payload.data) {
-    options.data = JSON.stringify(payload.data);
+    options.body = JSON.stringify(payload.data);
     options.headers = {'Content-Type': 'application/json'};
   }
 

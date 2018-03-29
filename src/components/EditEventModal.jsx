@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventForm from './EventForm';
 import { setEditEvent } from '../redux/actions/actionCreatorsEvents';
+import { updateEvent } from '../utils/tourneyService';
 import { uiToast } from '../redux/actions/actionCreatorsUI';
 
 class EditEventModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      editEvent: props.editEvent
+      // limit the properties that can be edited
+      editEvent: {
+        _id: props.editEvent._id,
+        title: props.editEvent.title,
+        resultsDate: props.editEvent.resultsDate,
+        payoutPositions: props.editEvent.payoutPositions,
+        betInc: props.editEvent.betInc,
+        betMin: props.editEvent.betMin,
+        betMax: props.editEvent.betMax,
+      }
     };
   }
 
@@ -26,9 +36,15 @@ class EditEventModal extends Component {
 
   saveChanges = (e) => {
     e.preventDefault();
+    let { betMin, betMax, betInc } = this.state.editEvent; 
     if (!this.EditForm.formEl.checkValidity()) {
       this.props.uiToast({ html: 'Please ensure all fields have valid data', classes: 'toast-error' });
       return;
+    } else if (betMin > betMax || betInc > (betMax - betMin)) {
+      this.props.uiToast({ html: 'Please ensure all of the Bet Restrictions make sense', classes: 'toast-error' });
+      return;
+    } else {
+      updateEvent(this.state.editEvent, function (data) { console.log(`updateEvent returned`, data) });
     }
     this.modalInstance.close();
     this.props.setEditEvent(null);
