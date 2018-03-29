@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { numDays } from '../utils/appLogicTourney';
-import { formatDateWithoutDay } from '../utils/utilities';
 
 class EventForm extends Component {
   componentDidMount() {
@@ -46,7 +45,7 @@ class EventForm extends Component {
               <label>
                 <input name="payoutPositions" className='with-gap' type="radio" value='1'
                   checked={this.props.event.payoutPositions === 1}
-                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value))}
+                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value, 10))}
                 />
                 <span>Win</span>
               </label>
@@ -55,7 +54,7 @@ class EventForm extends Component {
               <label>
                 <input name="payoutPositions" className='with-gap' type="radio" value='2'
                   checked={this.props.event.payoutPositions === 2}
-                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value))}                />
+                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value, 10))}                />
                 <span>Win & Place</span>
               </label>
             </p>
@@ -63,7 +62,7 @@ class EventForm extends Component {
               <label>
                 <input name="payoutPositions" className='with-gap' type="radio" value='3'
                   checked={this.props.event.payoutPositions === 3}
-                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value))}                />
+                  onChange={(e) => this.props.updateEditEventField('payoutPositions', parseInt(e.target.value, 10))}                />
                 <span>Win, Place & Show</span>
               </label>
             </p>

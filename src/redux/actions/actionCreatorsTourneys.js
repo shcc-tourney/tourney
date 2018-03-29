@@ -1,5 +1,12 @@
 import * as actions from './actionNames';
 
+export const updatePreviousTourney = (updatedTourney) => {
+  return {
+    type: actions.UPDATE_PREVIOUS_TOURNEY,
+    payload: updatedTourney
+  }
+};
+
 export const setCurrentTourney = (currentTourney) => {
   return {
     type: actions.SET_CURRENT_TOURNEY,

@@ -44,7 +44,9 @@ class EditEventModal extends Component {
       this.props.uiToast({ html: 'Please ensure all of the Bet Restrictions make sense', classes: 'toast-error' });
       return;
     } else {
-      updateEvent(this.state.editEvent, function (data) { console.log(`updateEvent returned`, data) });
+      updateEvent(this.state.editEvent, function (msgObj) {
+        // if (msgObj.msg) this.props.uiToast({ html: 'Event updated successfully', classes: 'toast-success' });
+      });
     }
     this.modalInstance.close();
     this.props.setEditEvent(null);

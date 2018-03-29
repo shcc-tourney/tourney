@@ -11,6 +11,15 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case actions.UPDATE_PREVIOUS_TOURNEY:
+      let prevTourneys = [...state.previous];
+      let updatedIdx = prevTourneys.findIndex(t => t._id === action.payload._id);
+      if (updatedIdx >= 0) {
+        prevTourneys[updatedIdx] = action.payload;
+        return {...state, previous: prevTourneys};
+      } else {
+        return state;
+      }
     case actions.SET_CURRENT_TOURNEY:
       return {...state, current: action.payload, selected: (state.selected || action.payload)};
     case actions.SET_PAST_TOURNEYS:

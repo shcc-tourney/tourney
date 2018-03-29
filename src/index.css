@@ -28,6 +28,11 @@ body {
   color: white;
 }
 
+.toast-success {
+  background-color: var(--green);
+  color: white;
+}
+
 .dropdown-trigger:focus {
   outline: none;
 }
