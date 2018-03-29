@@ -23,6 +23,8 @@ const TourneyCard = (props) => {
               <dd>{numDays}</dd>
             </React.Fragment>
           }
+          <dt># Events</dt>
+          <dd>{tourney.events.length}</dd>
           <hr/>
           <dt># Wagers / $ Wagered</dt>
           <dd>5<span>&nbsp;&nbsp;/&nbsp;&nbsp;</span>$125</dd>
@@ -33,7 +35,7 @@ const TourneyCard = (props) => {
         </dl>
       </div>
       <div className="card-action">
-        <a href="">Competitors<span data-badge-caption='' className='badge'>{tourney.competitors.length}</span></a>
+        <a href="">Competitors ({tourney.competitors.length})</a>
       </div>
     </article>
   );
