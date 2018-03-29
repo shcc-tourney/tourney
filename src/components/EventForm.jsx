@@ -69,7 +69,10 @@ class EventForm extends Component {
           </div>
         </div>
         <div className="row col s12 m6">
-          <div className="col s12 group-heading">Bet Restrictions</div>
+          <div className="col s12 group-heading">
+            Bet Restrictions
+            {this.props.numWagers ? ' (changes do not impact existing wagers)' : ''}
+          </div>
           <div className="input-field col s4">
             <input id='betMin' type='text' className="validate" pattern='\d+' required
               value={this.props.event.betMin} onChange={(e) => this.props.updateEditEventField('betMin', e.target.value)}

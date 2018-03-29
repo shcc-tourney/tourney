@@ -64,6 +64,7 @@ class EditEventModal extends Component {
         <div className="modal-content">
           <h4>Edit Event</h4>
           <EventForm ref={_frm => this.EditForm = _frm} tourney={this.props.tourney}
+            numWagers={this.props.editEvent.wagers.length}
             event={this.state.editEvent} updateEditEventField={this.updateEditEventField}
           />
         </div>
