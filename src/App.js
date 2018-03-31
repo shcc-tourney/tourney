@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LoginPage from './pages/LoginPage';
-import OddsPage from './pages/OddsPage';
+import TotePage from './pages/TotePage';
 import EventsPage from './pages/EventsPage';
 import WagersPage from './pages/WagersPage';
 import PayoutsPage from './pages/PayoutsPage';
@@ -20,8 +20,8 @@ class App extends Component {
             <Route path='/login' render={props => (
               <LoginPage {...props}/>
             )} />
-            <Route path='/odds' render={props => (
-              <OddsPage {...props}/>
+            <Route path='/tote' render={props => (
+              <TotePage {...props}/>
             )} />
             <Route path='/events' render={props => (
               this.props.user ?
@@ -41,7 +41,7 @@ class App extends Component {
                 :
                 <Redirect to='/login' />
             )} />
-            <Redirect to='/odds' />
+            <Redirect to='/tote' />
           </Switch>
         </main>
         <Footer />

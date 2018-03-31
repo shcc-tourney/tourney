@@ -11,7 +11,7 @@ class NavBar extends Component {
     e.preventDefault();
     userService.forgetMe();
     this.props.userLoggedOut();
-    this.props.history.push('/odds');
+    this.props.history.push('/tote');
   }
 
   componentDidMount() {
@@ -56,13 +56,13 @@ class NavBar extends Component {
                 <li className={this.props.location.pathname === '/login' ? 'active' : ''}><Link to="/login">Log In</Link></li>
               }
               <li className="divider"></li>
-              <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/odds">Live Odds</Link></li>
+              <li className={this.props.location.pathname === '/tote' ? 'active' : null}><Link to="/tote">Tote Board</Link></li>
               { this.props.user && authNavItems }
               { this.props.user && this.props.user.admin && adminNavItems }
             </ul>
 
             <ul id="nav-mobile" className="left hide-on-med-and-down">
-              <li className={this.props.location.pathname === '/odds' ? 'active' : null}><Link to="/odds">Live Odds</Link></li>
+              <li className={this.props.location.pathname === '/tote' ? 'active' : null}><Link to="/tote">Tote Board</Link></li>
               { this.props.user && authNavItems }
               { this.props.user && this.props.user.admin && adminNavItems }
             </ul>

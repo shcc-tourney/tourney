@@ -25,7 +25,7 @@ class LoginPage extends Component {
     e.preventDefault();
     userService.login({email: this.state.email, pw: this.state.pw}).then(user => {
       this.props.userAuthenticated(user);
-      user.admin ? this.props.history.push('/events') : this.props.history.push('/odds');
+      user.admin ? this.props.history.push('/events') : this.props.history.push('/tote');
     }).catch(err => {
       this.props.uiToast({ html: err.message, classes: 'toast-error' });
     });
