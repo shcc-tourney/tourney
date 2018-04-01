@@ -67,7 +67,7 @@ const EventCard = ({ event, setEditEvent }) => {
         { event.status === 'OPEN' ?
             <React.Fragment>
               <div><a href="">CHANGE EVENT STATUS TO <span>CLOSE</span> (NO MORE WAGERS)</a></div>
-              <div><a href="">ADD/REMOVE COMPETITORS</a></div>
+              <div><a href="">ENABLE/DISABLE COMPETITORS</a></div>
             </React.Fragment>
           :
            todayWithoutTime() <= event.resultsDate && <div><a href="">RE-OPEN EVENT FOR WAGERING</a></div>
