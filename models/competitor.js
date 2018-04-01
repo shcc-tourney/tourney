@@ -6,12 +6,13 @@ var competitorSchema = new mongoose.Schema({
     timestamps: true
 });
 
-competitorSchema.statics.create = function(name) {
+competitorSchema.statics.create = function({name}) {
   // ' oh    boy-GEORGE ' -> 'Oh Boy-George'
   name = name.replace(/ +/, ' ').toLowerCase().replace(/(\b[a-z](?!\s))/g, function(char) {
     return char.toUpperCase();
   });
-  return this.create({name});
+  var comp = new this({name});
+  return comp.save();
 };
 
 module.exports = mongoose.model('Competitor', competitorSchema);

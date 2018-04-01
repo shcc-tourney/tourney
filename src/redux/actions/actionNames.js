@@ -21,5 +21,8 @@ export const SET_CURRENT_TOURNEY = 'SET_CURRENT_TOURNEY';
 export const SET_PAST_TOURNEYS = 'SET_PAST_TOURNEYS';
 export const SET_SELECTED_TOURNEY = 'SET_SELECTED_TOURNEY';
 
-/*--- eventState actions ---*/
+/*--- eventsState actions ---*/
 export const SET_EDIT_EVENT = 'SET_EDIT_EVENT';
+
+/*--- competitorsState actions ---*/
+export const SET_COMPETITORS = 'SET_COMPETITORS';

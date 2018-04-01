@@ -9,6 +9,7 @@ import TotePage from './pages/TotePage';
 import EventsPage from './pages/EventsPage';
 import WagersPage from './pages/WagersPage';
 import PayoutsPage from './pages/PayoutsPage';
+import CompetitorsPage from './pages/CompetitorsPage';
 
 class App extends Component {
   render() {
@@ -24,8 +25,14 @@ class App extends Component {
               <TotePage {...props}/>
             )} />
             <Route path='/events' render={props => (
-              this.props.user ?
+              this.props.user && this.props.user.admin ?
                 <EventsPage/>
+              :
+                <Redirect to='/login' />
+            )} />
+            <Route path='/competitors' render={props => (
+              this.props.user && this.props.user.admin ?
+                <CompetitorsPage/>
               :
                 <Redirect to='/login' />
             )} />

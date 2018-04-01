@@ -5,6 +5,6 @@ module.exports = {
 };
 
 function create(req, res) {
-  Competitor.create(req.body.name)
+  Competitor.create(req.body)
   .then(competitor => res.json(competitor));
 }

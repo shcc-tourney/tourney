@@ -73,6 +73,10 @@ body {
   border-bottom: 1px solid var(--light-green);
 }
 
+.section-title span {
+  color: black;
+}
+
 /* misc materialize overrides */
 .App span.badge {
   font-weight: 300;
