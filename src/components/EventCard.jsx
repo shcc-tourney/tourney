@@ -66,7 +66,7 @@ const EventCard = ({ event, setEditEvent }) => {
       <div className="card-action">
         { event.status === 'OPEN' ?
             <React.Fragment>
-              <div><a href="">CHANGE EVENT STATUS TO <span>CLOSE</span> (NO MORE WAGERS)</a></div>
+              <div><a href="">CHANGE EVENT STATUS TO <span>CLOSED</span> (NO MORE WAGERS)</a></div>
               <div><a href="">ENABLE/DISABLE COMPETITORS</a></div>
             </React.Fragment>
           :
