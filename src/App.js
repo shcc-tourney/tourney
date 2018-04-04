@@ -9,7 +9,7 @@ import TotePage from './pages/TotePage';
 import EventsPage from './pages/EventsPage';
 import WagersPage from './pages/WagersPage';
 import PayoutsPage from './pages/PayoutsPage';
-import CompetitorsPage from './pages/CompetitorsPage';
+import TourneyCompetitorsPage from './pages/TourneyCompetitorsPage';
 
 class App extends Component {
   render() {
@@ -32,7 +32,7 @@ class App extends Component {
             )} />
             <Route path='/competitors' render={props => (
               this.props.user && this.props.user.admin ?
-                <CompetitorsPage/>
+                <TourneyCompetitorsPage/>
               :
                 <Redirect to='/login' />
             )} />

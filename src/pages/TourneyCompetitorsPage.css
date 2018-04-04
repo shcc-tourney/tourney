@@ -1,0 +1,10 @@
+.TourneyCompetitorsPage {
+  width: 100%;
+  margin: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.TourneyCompetitorsPage h5 {
+  margin-bottom: 29px;
+}

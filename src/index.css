@@ -126,3 +126,8 @@ body {
 .App .card dd span {
   color: grey;
 }
+
+.error-text {
+  color: var(--dark-red);
+}
+
