@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setPastTourneys } from './redux/actions/actionCreatorsTourneys';
+// import { setCompetitors } from './redux/actions/actionCreatorsCompetitors';
 import { apiReq } from './redux/actions/actionCreatorsAPI';
 import LoginPage from './pages/LoginPage';
 import TotePage from './pages/TotePage';
@@ -21,6 +22,10 @@ class App extends Component {
         convertStringsToDates: true,
         successActionCreator: setPastTourneys
       });
+      // this.props.apiReq({
+      //   url: '/api/competitors',
+      //   successActionCreator: setCompetitors
+      // });
     }
   }
   render() {
