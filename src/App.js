@@ -4,6 +4,8 @@ import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { setPastTourneys } from './redux/actions/actionCreatorsTourneys';
+import { apiReq } from './redux/actions/actionCreatorsAPI';
 import LoginPage from './pages/LoginPage';
 import TotePage from './pages/TotePage';
 import EventsPage from './pages/EventsPage';
@@ -12,6 +14,15 @@ import PayoutsPage from './pages/PayoutsPage';
 import TourneyCompetitorsPage from './pages/TourneyCompetitorsPage';
 
 class App extends Component {
+  componentDidMount() {
+    if (this.props.user) {
+      this.props.apiReq({
+        url: '/api/tourneys/past',
+        convertStringsToDates: true,
+        successActionCreator: setPastTourneys
+      });
+    }
+  }
   render() {
     return (
       <div className="App">
@@ -63,5 +74,7 @@ export default connect(
     loading: state.systemState.loading,
     user: state.userState.user
   }),
-  {}
+  {
+    apiReq
+  }
 )(App);

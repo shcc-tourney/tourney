@@ -27,6 +27,11 @@ export default (state = initialState, action) => {
       let tourneys = state.current ? action.payload.filter(t => t._id !== state.current._id) : action.payload;
       return { ...state, previous: tourneys, selected: (state.selected || (tourneys.length && tourneys[0]))};
     case actions.SET_SELECTED_TOURNEY:
+      // allow either _id or actual tourney object
+      if (typeof action.payload === 'string') {
+        action.payload = state.previous.find(t => t._id === action.payload)
+          || (state.current._id === action.payload ? state.current : null);
+      }
       return {...state, selected: action.payload}
     default:
       return state;
