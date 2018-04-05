@@ -52,7 +52,6 @@ body {
   color: rgba(0, 0, 0, 0.7);
 }
 
-
 .col-section {
   display: flex;
   flex-flow: column nowrap;
@@ -70,11 +69,10 @@ body {
 .section-title {
   color: var(--light-green);
   opacity: 0.5;
-  height: 42px;
+  min-height: 42px;
   width: 100%;
   font-size: 13px;
   letter-spacing: 3px;
-  white-space: nowrap;
   text-align: center;
   margin: -10px 0 5px;
   padding: 10px;
@@ -83,7 +81,7 @@ body {
 
 .section-title.large {
   font-size: 22px;
-  height: 52px;
+  min-height: 52px;
 }
 
 .section-title span {
