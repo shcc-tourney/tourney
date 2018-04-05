@@ -23,6 +23,13 @@ body {
   flex: 1;
 }
 
+.App .page {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  margin: 20px;
+}
+
 .toast-error {
   background-color: var(--dark-red);
   color: white;
@@ -44,6 +51,7 @@ body {
 .App h1.heading, .App h2.heading, .App h3.heading, .App h4.heading, .App h5.heading {
   color: rgba(0, 0, 0, 0.7);
 }
+
 
 .col-section {
   display: flex;
@@ -73,8 +81,14 @@ body {
   border-bottom: 1px solid var(--light-green);
 }
 
+.section-title.large {
+  font-size: 22px;
+  height: 52px;
+}
+
 .section-title span {
   color: black;
+  font-weight: bold;
 }
 
 /* misc materialize overrides */
