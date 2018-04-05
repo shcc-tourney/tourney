@@ -30,9 +30,9 @@ class App extends Component {
               :
                 <Redirect to='/login' />
             )} />
-            <Route path='/competitors' render={props => (
+            <Route path='/tourney-competitors/:tourneyId' render={props => (
               this.props.user && this.props.user.admin ?
-                <TourneyCompetitorsPage/>
+                <TourneyCompetitorsPage {...props}/>
               :
                 <Redirect to='/login' />
             )} />

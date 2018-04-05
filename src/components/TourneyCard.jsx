@@ -3,6 +3,7 @@ import './TourneyCard.css';
 import { numDays as tourneyNumDays, isPending } from '../utils/appLogicTourney';
 import { formatDateRange } from '../utils/utilities';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setSelectedTourney } from '../redux/actions/actionCreatorsTourneys';
 
 const TourneyCard = (props) => {
@@ -35,7 +36,7 @@ const TourneyCard = (props) => {
         </dl>
       </div>
       <div className="card-action">
-        <a href="">Competitors ({tourney.competitors.length})</a>
+        <Link to={`/tourney-competitors/${tourney._id}`}>Competitors ({tourney.competitors.length})</Link>
       </div>
     </article>
   );

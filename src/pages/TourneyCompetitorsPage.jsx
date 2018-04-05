@@ -11,6 +11,10 @@ class TourneyCompetitorsPage extends Component {
     // fetch competitors if has not been done yet,
     // then, competitors state will be updated in realtime
     // UPDATE_COMPETITORS
+    console.log(this.props.match.params.tourneyId)
+
+//TODO: use redux to set the selected tourney to tourneyId in the route
+
     if (!this.props.allCompetitors.length && this.props.tourney) {
       this.props.apiReq({
         url: '/api/competitors',
@@ -20,14 +24,20 @@ class TourneyCompetitorsPage extends Component {
   }
 
   render() {
-    let title = this.props.tourney ? this.props.tourney.name : 'No Active Tourney';
+    var { tourney } = this.props;
+    if (!tourney) return null;
+    let active = isPending(tourney);
+    let title = active ? 
+        <h5 className='center-align'>Assign Competitors to Tourney - <span>{tourney.name}</span></h5>
+      : 
+        <h5 className='center-align'>Competitors of <span>{tourney.name}</span> (past tourney)</h5>;
     return (
       <div className='TourneyCompetitorsPage'>
-        <h5 className='center-align'>Assign Competitors to Tourney - <span className={this.props.tourney ? '' : 'error-text'}>{title}</span></h5>
-          <CompetitorSelector
-            selectedCompetitors={this.props.tourney && this.props.tourney.competitors}
-            allCompetitors={this.props.allCompetitors}
-          />
+        {title}
+        <CompetitorSelector
+          selectedCompetitors={this.props.tourney && this.props.tourney.competitors}
+          allCompetitors={this.props.allCompetitors}
+        />
       </div>
     );
   }
