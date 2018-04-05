@@ -143,3 +143,9 @@ body {
   color: var(--dark-red);
 }
 
+.card-message {
+  color: var(--dark-green);
+  text-align: center;
+  font-size: 18px;
+}
+
