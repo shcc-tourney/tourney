@@ -26,3 +26,4 @@ export const SET_EDIT_EVENT = 'SET_EDIT_EVENT';
 
 /*--- competitorsState actions ---*/
 export const SET_COMPETITORS = 'SET_COMPETITORS';
+export const SET_COMPETITOR_FORM_MODE = 'SET_COMPETITOR_FORM_MODE';

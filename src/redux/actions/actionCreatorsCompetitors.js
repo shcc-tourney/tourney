@@ -7,3 +7,10 @@ export const setCompetitors = (allCompetitors) => {
   }
 };
 
+export const setCompetitorFormMode = (mode) => {
+  return {
+    type: actions.SET_COMPETITOR_FORM_MODE,
+    payload: mode
+  }
+};
+
