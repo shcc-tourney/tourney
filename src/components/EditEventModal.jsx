@@ -31,9 +31,8 @@ class EditEventModal extends Component {
   cancelEdit = (e) => {
     e.preventDefault();
     this.modalInstance.close();
-    this.props.setEditEvent(null);
   }
-
+  
   saveChanges = (e) => {
     e.preventDefault();
     let { betMin, betMax, betInc } = this.state.editEvent; 
@@ -49,12 +48,15 @@ class EditEventModal extends Component {
       });
     }
     this.modalInstance.close();
-    this.props.setEditEvent(null);
   }
 
   componentDidMount() {
     if (!this.props.editEvent) return;
-    this.modalInstance = window.M.Modal.init(this.modalEl, {});
+    this.modalInstance = window.M.Modal.init(this.modalEl, {
+      onCloseEnd: () => {
+        this.props.setEditEvent(null);
+      }
+    });
     this.modalInstance.open();
   }
 
