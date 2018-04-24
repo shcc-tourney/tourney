@@ -3,6 +3,7 @@ import messages from './socket-messages';
 import tokenService from './tokenService';
 import { websocketConnect, websocketDisconnect } from '../redux/actions/actionCreatorsSystem';
 import { setCurrentTourney, setSelectedTourney, updatePreviousTourney } from '../redux/actions/actionCreatorsTourneys';
+import { setCompetitors } from '../redux/actions/actionCreatorsCompetitors';
 import store from '../redux/store';
 import { convertDateStringPropsToDateObjects } from './utilities';
 
@@ -21,6 +22,10 @@ socket.on(messages.UPDATE_TOURNEY, (tourney) => {
   if (tState.current && tState.current._id === tourney._id) store.dispatch(setCurrentTourney(tourney));
   if (tState.selected && tState.selected._id === tourney._id) store.dispatch(setSelectedTourney(tourney));
   if (tState.previous.some(t => t._id === tourney._id)) store.dispatch(updatePreviousTourney(tourney));
+});
+
+socket.on(messages.SET_COMPETITORS, (competitors) => {
+  store.dispatch(setCompetitors(competitors));
 });
 
 socket.on('connect', () => {

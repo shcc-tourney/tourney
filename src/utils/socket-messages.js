@@ -4,4 +4,5 @@ export default {
 
   // incoming
   UPDATE_TOURNEY: 'UPDATE_TOURNEY',
+  SET_COMPETITORS: 'SET_COMPETITORS',
 };
