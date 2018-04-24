@@ -5,7 +5,7 @@ import Footer from './components/Footer';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setPastTourneys } from './redux/actions/actionCreatorsTourneys';
-// import { setCompetitors } from './redux/actions/actionCreatorsCompetitors';
+import { setCompetitors } from './redux/actions/actionCreatorsCompetitors';
 import { apiReq } from './redux/actions/actionCreatorsAPI';
 import LoginPage from './pages/LoginPage';
 import TotePage from './pages/TotePage';
@@ -15,19 +15,28 @@ import PayoutsPage from './pages/PayoutsPage';
 import TourneyCompetitorsPage from './pages/TourneyCompetitorsPage';
 
 class App extends Component {
-  componentDidMount() {
-    if (this.props.user) {
-      this.props.apiReq({
-        url: '/api/tourneys/past',
-        convertStringsToDates: true,
-        successActionCreator: setPastTourneys
-      });
-      // this.props.apiReq({
-      //   url: '/api/competitors',
-      //   successActionCreator: setCompetitors
-      // });
-    }
+  loadInitialData() {
+    this.props.apiReq({
+      url: '/api/tourneys/past',
+      convertStringsToDates: true,
+      successActionCreator: setPastTourneys
+    });
+    this.props.apiReq({
+      url: '/api/competitors',
+      successActionCreator: setCompetitors
+    });
   }
+
+  componentDidMount() {
+    if (this.props.user) this.loadInitialData();
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    // load initial data if just logged in
+    if (!this.props.user && nextProps.user)
+    this.loadInitialData();
+  }
+
   render() {
     return (
       <div className="App">
