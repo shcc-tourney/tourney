@@ -2,7 +2,7 @@ var Competitor = require('../models/competitor');
 
 module.exports = {
   index,
-  create,
+  create
 };
 
 function index(req, res) {
@@ -10,7 +10,16 @@ function index(req, res) {
   .then(competitors => res.json(competitors));
 }
 
-function create(req, res) {
+function create(req, res, next) {
   Competitor.create(req.body)
-  .then(competitor => res.json(competitor));
+  .then(competitor => {
+    if (res.locals.realtime) {
+      Competitor.find({}).sort({name: 1}).exec().then(competitors => {
+        res.locals.competitors = competitors;
+        next();
+      });
+    } else {
+      res.json(competitor);
+    }
+  });
 }

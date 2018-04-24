@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 
 var competitorSchema = new mongoose.Schema({
-  name: { type: String, required: true }
+  name: { type: String, required: true, unique: true }
 }, {
     timestamps: true
 });
 
 competitorSchema.statics.create = function({name}) {
-  // ' oh    boy-GEORGE ' -> 'Oh Boy-George'
+  // format name property: '  oh    boy-GEORGE ' -> 'Oh Boy-George'
   name = name.replace(/ +/, ' ').toLowerCase().replace(/(\b[a-z](?!\s))/g, function(char) {
     return char.toUpperCase();
   });
