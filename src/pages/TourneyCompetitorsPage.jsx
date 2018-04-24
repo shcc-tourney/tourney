@@ -12,7 +12,6 @@ class TourneyCompetitorsPage extends Component {
     // Set the selected tourney to tourneyId in the route
     this.props.setSelectedTourney(this.props.match.params.tourneyId);
   }
-
   render() {
     var { tourney } = this.props;
     if (!tourney) return null;
@@ -28,7 +27,7 @@ class TourneyCompetitorsPage extends Component {
           <TourneyCompetitorList/>
           { active &&
             <CompetitorSelector
-              title='Previous Competitors Available to Assign to Tourney'
+              title='Previous Competitors Available to Assign to Tourney (click to assign)'
               onSelectCompetitor={''}
               selectedCompetitors={this.props.tourney.competitors}
               allCompetitors={this.props.allCompetitors}
