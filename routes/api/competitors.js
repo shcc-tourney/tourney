@@ -6,6 +6,6 @@ var checkAuth = require('../../config/auth').checkAuth;
 /*-- Anonomous Routes --*/
 
 /*-- Authenticated Routes --*/
-router.get('/competitors', checkAuth, competitorsCtrl.index);
+router.get('/', checkAuth, competitorsCtrl.index);
 
 module.exports = router;
