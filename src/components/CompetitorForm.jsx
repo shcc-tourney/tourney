@@ -6,7 +6,7 @@ class CompetitorForm extends Component {
   }
   render() {
     return (
-      <form autoComplete='off' className="col s12">
+      <form onSubmit={this.props.onEnter} autoComplete='off' className="col s12">
         <div className="row">
           <div className="input-field col s12">
             <input id='name' type='text' className="validate" pattern='.+' required

@@ -37,7 +37,11 @@ class NewCompetitorModal extends Component {
       <div ref={modal => this.modalEl = modal} id="new-competitor-modal" className="modal">
         <div className="modal-content">
           <h4>Create Competitor</h4>
-          <CompetitorForm name={this.state.name} updateCompetitorField={this.updateCompetitorField}/>
+          <CompetitorForm
+            name={this.state.name}
+            onEnter={this.createCompetitor}
+            updateCompetitorField={this.updateCompetitorField}
+          />
         </div>
         <div className="modal-footer">
           <a href="" onClick={this.cancelModal} className="btn-flat">cancel</a>

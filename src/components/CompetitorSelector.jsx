@@ -17,7 +17,7 @@ const CompetitorSelector = ({ title, onSelectCompetitor, selectedCompetitors, al
         )}
       </div>
       <div className="card-action flex-row-between-ctr">
-        { competitors.length && <h5 className='card-message flex4' style={{textAlign: 'left'}}>Please assign an EXISTING competitor before creating a new one</h5> }
+        { (competitors.length || '') && <h5 className='card-message flex4' style={{textAlign: 'left'}}>Please assign an EXISTING competitor before creating a new one</h5> }
         <div className='section-control-bar flex1'><button className='btn-small' onClick={() => setCompetitorFormMode('NEW') }>Create Competitor</button></div>
       </div>
       { competitorFormMode === 'NEW' && <NewCompetitorModal/> }
