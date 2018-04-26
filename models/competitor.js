@@ -11,6 +11,7 @@ competitorSchema.statics.create = function({name}) {
   name = name.replace(/ +/, ' ').toLowerCase().replace(/(\b[a-z](?!\s))/g, function(char) {
     return char.toUpperCase();
   });
+  name = name[0].toUpperCase() + name.slice(1);
   var comp = new this({name});
   return comp.save();
 };
