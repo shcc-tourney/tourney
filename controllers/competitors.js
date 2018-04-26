@@ -21,5 +21,8 @@ function create(req, res, next) {
     } else {
       res.json(competitor);
     }
+  })
+  .catch(err => {
+    res.status(400).json({ err: 'Competitor Already Exists' });
   });
 }
