@@ -19,12 +19,15 @@ const apiReqRealtimeResMiddleware = ({ dispatch }) => next => action => {
   if (token) options.headers = Object.assign({}, options.headers, {'Authorization': `Bearer ${token}`});
   
   dispatch(fetchBegin());
-  return fetch(payload.url, options).then(res => {
+  return fetch(payload.url, options)
+    .then(res => res.json())
+    .then(data => {
       dispatch(fetchEnd());
-      if (res.ok) return res.json();
-      throw new Error('Response to fetch did not return a status of OK');
-    }).then(data => {
-      if (payload.successCallback) payload.successCallback(data);
+      if (data.err) {
+        dispatch(uiToast({html: data.err, classes: 'toast-error'}))
+      } else {
+        if (payload.successCallback) payload.successCallback(data);
+      }
     })
     .catch((err) => {
       dispatch(fetchEnd());

@@ -20,15 +20,17 @@ const apiReq = ({ dispatch }) => next => action => {
   if (token) options.headers = Object.assign({}, options.headers, {'Authorization': `Bearer ${token}`});
   
   dispatch(fetchBegin());
-  return fetch(payload.url, options).then(res => {
-      if (res.ok) return res.json();
-      throw new Error('Response to fetch did not return a status of OK');
-    })
+  return fetch(payload.url, options)
+    .then(res => res.json())
     .then(data => {
       dispatch(fetchEnd());
-      if (payload.convertStringsToDates) convertDateStringPropsToDateObjects(data);
-      if (payload.successActionCreator) return dispatch(payload.successActionCreator(data));
-      return data;
+      if (data.err) {
+        dispatch(uiToast({ html: data.err, classes: 'toast-error' }))
+      } else {
+        if (payload.convertStringsToDates) convertDateStringPropsToDateObjects(data);
+        if (payload.successActionCreator) return dispatch(payload.successActionCreator(data));
+        return data;
+      }
     })
     .catch((err) => {
       dispatch(fetchEnd());
