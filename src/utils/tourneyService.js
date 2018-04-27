@@ -12,3 +12,11 @@ export function updateEvent(event, cb) {
   }));
 }
 
+export function assignCompetitorToTourney(tourneyId, competitorId, cb) {
+  store.dispatch(apiReqRealtimeRes({
+    url: `${BASE_URL_RT}tourneys/${tourneyId}/competitors/${competitorId}`,
+    method: 'PUT',
+    successCallback: cb
+  }));
+}
+

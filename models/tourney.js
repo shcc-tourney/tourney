@@ -24,6 +24,21 @@ tourneySchema.virtual('isPending').get(function() {
   return (utilities.dateDiff(utilities.todayWithoutTime(), this.endDate, 'days') >= 0);
 });
 
+tourneySchema.methods.assignCompetitor = function(competitorId, cb) {
+  if (this.competitors.some(c => c.competitor.equals(competitorId))) return cb(this);
+  this.model('Competitor').findById(competitorId)
+  .then(competitor => {
+    // competitorNo is assigned and nextCompetitorNo is updated by pre-save hook in tourneyCompetitorSchema
+    this.competitors.push({
+      name: competitor.name,
+      competitor: competitor._id
+    });
+    this.save().then(updatedTourney => {
+      cb(updatedTourney);
+    });
+  });
+};
+
 tourneySchema.statics.getCurrent = function () {
   var today = utilities.todayWithoutTime();
   return this.findOne().where('endDate').gte(today).exec();

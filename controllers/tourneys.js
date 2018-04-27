@@ -4,8 +4,23 @@ var utilities = require('../utils/utilities');
 module.exports = {
   getCurrent,
   getPast,
+  assignCompetitor,
   updateEvent
 };
+
+function assignCompetitor(req, res, next) {
+  Tourney.findOne({_id: req.params.tourneyId})
+  .then(tourney => {
+    tourney.assignCompetitor(req.params.competitorId, updatedTourney => {
+      if (res.locals.realtime) {
+        res.locals.updatedTourney = tourney;
+        next();
+      } else {
+        res.json(tourney);
+      }
+    });
+  });
+}
 
 function updateEvent(req, res, next) {
   Tourney.findOne({'events._id': req.body._id})

@@ -11,7 +11,7 @@ const CompetitorSelector = ({ title, onSelectCompetitor, selectedCompetitors, al
         <span className="card-title">{title}</span>
         { !competitors.length && <h5 className='card-message'>There are no unassigned competitors</h5> }
         { competitors.map(c =>
-          <div className="chip clickable" key={c._id} onClick={() => onSelectCompetitor(c)}>
+          <div className="chip clickable" key={c._id} onClick={() => onSelectCompetitor(c._id)}>
             {c.name}
           </div>
         )}

@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { apiReq } from '../redux/actions/actionCreatorsAPI';
 import { setSelectedTourney } from '../redux/actions/actionCreatorsTourneys';
 import { isPending } from '../utils/appLogicTourney';
 import TourneyCompetitorList from '../components/TourneyCompetitorList';
 import CompetitorSelector from '../components/CompetitorSelector';
+import { assignCompetitorToTourney } from '../utils/tourneyService';
 
 class TourneyCompetitorsPage extends Component {
   componentDidMount() {
     if (!this.props.tourney) return;
     // Set the selected tourney to tourneyId in the route
     this.props.setSelectedTourney(this.props.match.params.tourneyId);
+  }
+  assignCompetitor = (competitorId) => {
+    assignCompetitorToTourney(this.props.tourney._id, competitorId);
   }
   render() {
     var { tourney } = this.props;
@@ -28,7 +31,7 @@ class TourneyCompetitorsPage extends Component {
           { active &&
             <CompetitorSelector
               title='Previous Competitors Available to Assign to Tourney (click to assign)'
-              onSelectCompetitor={''}
+              onSelectCompetitor={this.assignCompetitor}
               selectedCompetitors={this.props.tourney.competitors}
               allCompetitors={this.props.allCompetitors}
             />
@@ -45,7 +48,6 @@ export default connect(
     allCompetitors: state.competitorsState.all
   }),
   {
-    setSelectedTourney,
-    apiReq
+    setSelectedTourney
   }
 )(TourneyCompetitorsPage);
