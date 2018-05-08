@@ -8,7 +8,7 @@ class EventsPage extends Component {
     return (
       <div className='EventsPage'>
         <TourneySelector/>
-        <EventList/>
+        <EventList history={this.props.history}/>
       </div>
     );
   }

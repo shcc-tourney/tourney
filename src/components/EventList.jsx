@@ -6,7 +6,7 @@ import NewEventModal from './NewEventModal';
 import EditEventModal from './EditEventModal';
 import { isPending } from '../utils/appLogicTourney';
 
-const EventList = ({ tourney, eventFormMode, editEvent}) => {
+const EventList = ({ tourney, eventFormMode, editEvent, history}) => {
   function openNewEventModal() {
     window.$('#new-event-modal').modal();
     window.$('#new-event-modal').modal('open');
@@ -19,7 +19,7 @@ const EventList = ({ tourney, eventFormMode, editEvent}) => {
       {tourney && current && <div className='section-control-bar'><button className='btn-small' onClick={openNewEventModal}>Create Event</button></div>}
       { tourney ?
         tourney.events.length ?
-          tourney.events.map(e => <EventCard event={e} key={e._id}/>)
+          tourney.events.map(e => <EventCard event={e} key={e._id} history={history}/>)
           :
           current ?
             <h4 className='heading'>No Events for {tourney.name} Created Yet</h4>
