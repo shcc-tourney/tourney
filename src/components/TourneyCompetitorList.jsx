@@ -1,5 +1,4 @@
 import React from 'react';
-import './TourneyCompetitorList.css';
 
 export default ({ competitors, onCompetitorClicked }) => {
   return (
