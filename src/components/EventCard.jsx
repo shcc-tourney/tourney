@@ -59,7 +59,7 @@ const EventCard = ({ event, setEditEvent }) => {
               competitors go here
               </dd>
             :
-              <dd>No competitors assigned to this event yet</dd>
+              <dd>No competitors enabled for this event yet</dd>
           }
         </dl>
       </div>
