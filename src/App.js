@@ -13,6 +13,7 @@ import EventsPage from './pages/EventsPage';
 import WagersPage from './pages/WagersPage';
 import PayoutsPage from './pages/PayoutsPage';
 import TourneyCompetitorsPage from './pages/TourneyCompetitorsPage';
+import EventCompetitorsPage from './pages/EventCompetitorsPage';
 
 class App extends Component {
   loadInitialData() {
@@ -49,9 +50,15 @@ class App extends Component {
             <Route path='/tote' render={props => (
               <TotePage {...props}/>
             )} />
+            <Route path='/events/competitors' render={props => (
+              this.props.user && this.props.user.admin ?
+                <EventCompetitorsPage/>
+              :
+                <Redirect to='/login' />
+            )} />
             <Route path='/events' render={props => (
               this.props.user && this.props.user.admin ?
-                <EventsPage/>
+                <EventsPage history={props.history} />
               :
                 <Redirect to='/login' />
             )} />
