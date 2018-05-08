@@ -24,7 +24,7 @@ const apiReq = ({ dispatch }) => next => action => {
     .then(res => res.json())
     .then(data => {
       dispatch(fetchEnd());
-      if (data.err) {
+      if (data && data.err) {
         dispatch(uiToast({ html: data.err, classes: 'toast-error' }))
       } else {
         if (payload.convertStringsToDates) convertDateStringPropsToDateObjects(data);
