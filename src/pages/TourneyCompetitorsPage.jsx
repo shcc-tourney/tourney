@@ -27,12 +27,15 @@ class TourneyCompetitorsPage extends Component {
       <div className='page'>
         <div className='col-section'>
           {title}
-          <TourneyCompetitorList/>
+          <TourneyCompetitorList
+            competitors={tourney.competitors}
+            onCompetitorClicked={''}
+          />
           { active &&
             <CompetitorSelector
               title='Previous Competitors Available to Assign to Tourney (click to assign)'
               onSelectCompetitor={this.assignCompetitor}
-              selectedCompetitors={this.props.tourney.competitors}
+              selectedCompetitors={tourney.competitors}
               allCompetitors={this.props.allCompetitors}
             />
           }

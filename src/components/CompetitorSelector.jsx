@@ -4,7 +4,7 @@ import NewCompetitorModal from './NewCompetitorModal';
 import { setCompetitorFormMode } from '../redux/actions/actionCreatorsCompetitors';
 
 const CompetitorSelector = ({ title, onSelectCompetitor, selectedCompetitors, allCompetitors, competitorFormMode, setCompetitorFormMode }) => {
-  let competitors = allCompetitors.filter(c => !selectedCompetitors.some(sc => sc._id === c._id));
+  let competitors = allCompetitors.filter(c => !selectedCompetitors.some(sc => sc.competitor === c._id));
   return (
     <article className='card'>
       <div className="card-content">
