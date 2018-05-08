@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { setEditEvent } from '../redux/actions/actionCreatorsEvents';
 import { todayWithoutTime } from '../utils/utilities';
 
-const EventCard = ({ event, setEditEvent }) => {
+const EventCard = ({ event, setEditEvent, history }) => {
   let winningPositions = ['WIN', 'PLACE', 'SHOW']
     .slice(0, event.payoutPositions)
     .reduce((acc, pos, idx, arr) => {
@@ -16,6 +16,12 @@ const EventCard = ({ event, setEditEvent }) => {
   function showEditModal(e) {
     e.preventDefault();
     setEditEvent(event);
+  }
+  
+  function enableDisableCompetitors(e) {
+    e.preventDefault();
+    setEditEvent(event);
+    history.push('/events/competitors');
   }
     
   return (
@@ -67,7 +73,7 @@ const EventCard = ({ event, setEditEvent }) => {
         { event.status === 'OPEN' ?
             <React.Fragment>
               <div><a href="">CHANGE EVENT STATUS TO <span>CLOSED</span> (NO MORE WAGERS)</a></div>
-              <div><a href="">ENABLE/DISABLE COMPETITORS</a></div>
+              <div><a href="" onClick={enableDisableCompetitors}>ENABLE/DISABLE COMPETITORS</a></div>
             </React.Fragment>
           :
            todayWithoutTime() <= event.resultsDate && <div><a href="">RE-OPEN EVENT FOR WAGERING</a></div>
