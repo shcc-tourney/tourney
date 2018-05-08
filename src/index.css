@@ -152,6 +152,7 @@ body {
 .chip {
   /* prevents jitter when hovering over materialize chip class */
   border: 1px solid transparent;
+  height: 34px;
 }
 
 .chip.clickable {
@@ -160,6 +161,20 @@ body {
 
 .chip.clickable:hover {
   border: 1px solid var(--dark-green);
+}
+
+.chip .competitor-badge {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    border-radius: 10px;
+    height: 20px;
+    color: white;
+    background-color: var(--brown);
+    min-width: 20px;
+    margin-right: 4px;
+    margin-left: -5px;
 }
 
 .flex-row-between-ctr {

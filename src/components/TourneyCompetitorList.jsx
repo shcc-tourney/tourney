@@ -9,7 +9,7 @@ export default ({ competitors, onCompetitorClicked }) => {
         {!competitors.length && <h5 className='card-message'>There are no assigned competitors</h5>}
         {competitors.map(c =>
           <div className="chip clickable" key={c._id} onClick={() => onCompetitorClicked(c._id)}>
-            {c.name}
+            <div className="competitor-badge">{c.competitorNo}</div> {c.name}
           </div>
         )}
       </div>
