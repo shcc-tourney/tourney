@@ -13,7 +13,7 @@ const TourneyCard = (props) => {
     <article className={`TourneyCard card ${selected ? 'active': 'hoverable'}`} onClick={selected ? null : () => props.setSelectedTourney(tourney)}>
       <div className="card-content">
         <span className="card-title">{tourney.name}
-          {isPending(tourney) && <a href="" className="secondary-content"><i className="material-icons">edit</i></a>}
+          {/*isPending(tourney) && <a href="" className="secondary-content"><i className="material-icons">edit</i></a>*/}
         </span>
         <dl>
           <dt>Dates</dt>
