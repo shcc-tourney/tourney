@@ -28,3 +28,10 @@ export const setEditEvent = (event) => {
   };
 };
 
+export const setWorkingEvent = (event) => {
+  return {
+    type: actions.SET_WORKING_EVENT,
+    payload: event
+  };
+};
+

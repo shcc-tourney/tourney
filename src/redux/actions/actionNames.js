@@ -23,6 +23,7 @@ export const SET_SELECTED_TOURNEY = 'SET_SELECTED_TOURNEY';
 
 /*--- eventsState actions ---*/
 export const SET_EDIT_EVENT = 'SET_EDIT_EVENT';
+export const SET_WORKING_EVENT = 'SET_WORKING_EVENT';
 
 /*--- competitorsState actions ---*/
 export const SET_COMPETITORS = 'SET_COMPETITORS';

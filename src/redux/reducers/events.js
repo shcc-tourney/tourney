@@ -6,6 +6,7 @@ import { cloneDeep } from 'lodash';
 const initialState = {
   eventFormMode: null,
   editEvent: null,
+  workingEvent: null,
   newEvent: null
 };
 
@@ -18,6 +19,12 @@ export default (state = initialState, action) => {
         return {...state, eventFormMode: 'EDIT', editEvent: copy};
       } else {
         return {...state, eventFormMode: null, editEvent: null};
+      }
+    case actions.SET_WORKING_EVENT:
+      if (action.payload) {
+        return {...state, eventFormMode: 'EDIT', workingEvent: action.payload};
+      } else {
+        return {...state, eventFormMode: null, workingEvent: null};
       }
     default:
       return state;
