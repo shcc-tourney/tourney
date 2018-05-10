@@ -30,6 +30,11 @@ function enableCompetitorForEvent(req, res, next) {
     let exists = event.competitors.some(c => c.equals(req.params.competitorId));
     if (exists) return res.json(tourney);
     event.competitors.push(req.params.competitorId);
+    event.competitors.sort((a, b) => {
+      a = tourney.competitors.find(c => c._id.equals(a));
+      b = tourney.competitors.find(c => c._id.equals(b));
+      return a.competitorNo - b.competitorNo;
+    });
     tourney.save().then(function() {
       if (res.locals.realtime) {
         res.locals.updatedTourney = tourney;
