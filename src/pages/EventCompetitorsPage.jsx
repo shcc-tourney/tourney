@@ -9,7 +9,6 @@ class EventCompetitorsPage extends Component {
     assignCompetitorToEvent(this.props.event._id, competitorId);
   }
   render() {
-    console.dir('rendering EventCompetitorsPage', this.props.tourney)
     var { event, tourney } = this.props;
     if (!event) {
       setTimeout(() => this.props.history.push('/events'), 100);
