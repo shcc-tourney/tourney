@@ -22,9 +22,9 @@ export default (state = initialState, action) => {
       }
     case actions.SET_WORKING_EVENT:
       if (action.payload) {
-        return {...state, eventFormMode: 'EDIT', workingEvent: action.payload};
+        return {...state, workingEvent: action.payload};
       } else {
-        return {...state, eventFormMode: null, workingEvent: null};
+        return {...state, workingEvent: null};
       }
     default:
       return state;

@@ -23,6 +23,12 @@ router.put('/events', checkAuth, markRealtimeResponse, tourneysCtrl.updateEvent,
   res.json({ msg: 'successful' });
 });
 
+router.put('/events/:eventId/competitors/:competitorId', checkAuth, markRealtimeResponse, tourneysCtrl.enableCompetitorForEvent, function(req, res) {
+  var io = ioServer.get();
+  io.in('auth').emit(messages.UPDATE_TOURNEY, res.locals.updatedTourney);
+  res.json({ msg: 'successful' });
+});
+
 router.post('/competitors', checkAuth, markRealtimeResponse, competitorsCtrl.create, function (req, res) {
   var io = ioServer.get();
   io.in('auth').emit(messages.SET_COMPETITORS, res.locals.competitors);

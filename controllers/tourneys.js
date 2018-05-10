@@ -5,6 +5,7 @@ module.exports = {
   getCurrent,
   getPast,
   assignCompetitor,
+  enableCompetitorForEvent,
   updateEvent
 };
 
@@ -12,6 +13,24 @@ function assignCompetitor(req, res, next) {
   Tourney.findOne({_id: req.params.tourneyId})
   .then(tourney => {
     tourney.assignCompetitor(req.params.competitorId, updatedTourney => {
+      if (res.locals.realtime) {
+        res.locals.updatedTourney = tourney;
+        next();
+      } else {
+        res.json(tourney);
+      }
+    });
+  });
+}
+
+function enableCompetitorForEvent(req, res, next) {
+  Tourney.findOne({'events._id': req.params.eventId})
+  .then(tourney => {
+    let event = tourney.events.id(req.params.eventId);
+    let exists = event.competitors.some(c => c.equals(req.params.competitorId));
+    if (exists) return res.json(tourney);
+    event.competitors.push(req.params.competitorId);
+    tourney.save().then(function() {
       if (res.locals.realtime) {
         res.locals.updatedTourney = tourney;
         next();

@@ -2,9 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const EventCompetitorSelector = ({ onSelectCompetitor, selectedCompetitors, allCompetitors }) => {
-  function onCompetitorClicked(){}
   
-  let competitors = allCompetitors.filter(c => !selectedCompetitors.some(sc => sc.competitor === c._id));
+ 
+  
+console.log('rendering EventCompetitorSelector', selectedCompetitors)
+
+
+  let competitors = allCompetitors.filter(c => !selectedCompetitors.some(sc => sc === c._id));
   return (
     <article className='card'>
       <div className="card-content">

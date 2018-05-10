@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EventCompetitorList from '../components/EventCompetitorList';
 import EventCompetitorSelector from '../components/EventCompetitorSelector';
-import { assignCompetitorToTourney } from '../utils/tourneyService';
+import { assignCompetitorToEvent } from '../utils/tourneyService';
 
 class EventCompetitorsPage extends Component {
   assignCompetitor = (competitorId) => {
-    assignCompetitorToTourney(this.props.tourney._id, competitorId);
+    assignCompetitorToEvent(this.props.event._id, competitorId);
   }
   render() {
+    console.dir('rendering EventCompetitorsPage', this.props.tourney)
     var { event, tourney } = this.props;
     if (!event) {
       setTimeout(() => this.props.history.push('/events'), 100);
@@ -19,6 +20,7 @@ class EventCompetitorsPage extends Component {
         <div className='col-section'>
           <div className='section-title large'>Assign Competitors to Event - <span>{event.title} ({tourney.name})</span></div>
           <EventCompetitorList
+            tourneyCompetitors={tourney.competitors}
             competitors={event.competitors}
           />
           <EventCompetitorSelector
