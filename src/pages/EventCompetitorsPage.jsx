@@ -10,11 +10,14 @@ class EventCompetitorsPage extends Component {
   }
   render() {
     var { event, tourney } = this.props;
-    if (!event) return null;
+    if (!event) {
+      setTimeout(() => this.props.history.push('/events'), 100);
+      return null;
+    }
     return (
       <div className='page'>
         <div className='col-section'>
-          <div className='section-title large'>Assign Competitors to Event - <span>{event.name}</span></div>
+          <div className='section-title large'>Assign Competitors to Event - <span>{event.title} ({tourney.name})</span></div>
           <EventCompetitorList
             competitors={event.competitors}
           />
@@ -32,7 +35,7 @@ class EventCompetitorsPage extends Component {
 export default connect(
   (state) => ({
     tourney: state.tourneysState.selected,
-    event: state.eventsState.editEvent
+    event: state.eventsState.workingEvent
   }),
   {
   }

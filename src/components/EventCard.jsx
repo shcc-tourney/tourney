@@ -2,9 +2,10 @@ import React from 'react';
 import './EventCard.css';
 import { connect } from 'react-redux';
 import { setEditEvent } from '../redux/actions/actionCreatorsEvents';
+import { setWorkingEvent } from '../redux/actions/actionCreatorsEvents';
 import { todayWithoutTime } from '../utils/utilities';
 
-const EventCard = ({ event, setEditEvent, history }) => {
+const EventCard = ({ event, setEditEvent, setWorkingEvent, history }) => {
   let winningPositions = ['WIN', 'PLACE', 'SHOW']
     .slice(0, event.payoutPositions)
     .reduce((acc, pos, idx, arr) => {
@@ -20,7 +21,7 @@ const EventCard = ({ event, setEditEvent, history }) => {
   
   function enableDisableCompetitors(e) {
     e.preventDefault();
-    setEditEvent(event);
+    setWorkingEvent(event);
     history.push('/events/competitors');
   }
     
@@ -86,6 +87,7 @@ const EventCard = ({ event, setEditEvent, history }) => {
 export default connect(
   null,
   {
-    setEditEvent
+    setEditEvent,
+    setWorkingEvent
   }
 )(EventCard);

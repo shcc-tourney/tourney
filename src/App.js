@@ -52,7 +52,7 @@ class App extends Component {
             )} />
             <Route path='/events/competitors' render={props => (
               this.props.user && this.props.user.admin ?
-                <EventCompetitorsPage/>
+                <EventCompetitorsPage history={props.history}/>
               :
                 <Redirect to='/login' />
             )} />
